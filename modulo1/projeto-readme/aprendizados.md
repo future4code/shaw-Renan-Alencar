@@ -1,0 +1,3 @@
+# Primeira semana curso Labenu
+
+Nessa semana de onboarding aprendemos a mexer no slack que é uma ferramenta para comunicação dentro das empresas, também aprendemos comandos do **terminal** e realizamos um exercício de fixação que era um jogo e precisávamos achar o assassino de um crime usando apenas comandos no terminal. Também aprendemos a usar o **Git** e o **Github**, fizemos exercícios de fixação de ambos para melhor aprendizado.
