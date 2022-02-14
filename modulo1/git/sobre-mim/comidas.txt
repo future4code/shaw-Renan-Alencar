@@ -1,0 +1,10 @@
+1. Pizza
+2. Hambúrguer
+3. Hot dog
+4. japonesa
+5. feijoada
+6. mexicana
+7. carne
+8. arroz
+9. feijão
+10. frango
