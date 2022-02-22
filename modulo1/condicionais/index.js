@@ -26,72 +26,69 @@ c. Sim. pois o console de mensagem não pode acessar a variavel let mensagem que
 
 */
 
-
 //Exercícios de escrita de código
 //1.
 //a. b.
 const idade = Number(prompt("Digite sua idade"));
 
 // c.
-if (idade >= 18){
-  console.log("Você pode dirigir.")
-}else{
-  console.log("Você não pode dirigir ainda.")
+if (idade >= 18) {
+  console.log("Você pode dirigir.");
+} else {
+  console.log("Você não pode dirigir ainda.");
 }
-
 
 // 2.
-const turno = prompt("Digite que turno você estuda:  M (matutino) ou V (Vespertino) ou N (Noturno)");
+const turno = prompt(
+  "Digite que turno você estuda:  M (matutino) ou V (Vespertino) ou N (Noturno)"
+);
 
-if(turno === "M"){
-  console.log("Bom dia!")
-}else if(turno === "V"){
-  console.log("Boa tarde!")
-}else{
-  console.log("Boa noite!")
+if (turno === "M") {
+  console.log("Bom dia!");
+} else if (turno === "V") {
+  console.log("Boa tarde!");
+} else {
+  console.log("Boa noite!");
 }
-
 
 //3.
-const turno2 = prompt("Digite que turno você estuda:  M (matutino) ou V (Vespertino) ou N (Noturno)");
+const turno2 = prompt(
+  "Digite que turno você estuda:  M (matutino) ou V (Vespertino) ou N (Noturno)"
+);
 
-switch(turno2){
+switch (turno2) {
   case "M":
-    console.log("Bom dia!")
-    break
+    console.log("Bom dia!");
+    break;
   case "V":
-    console.log("Boa tarde!")
-    break
+    console.log("Boa tarde!");
+    break;
   case "N":
-    console.log("Boa noite!")
-    break
+    console.log("Boa noite!");
+    break;
 }
-
 
 //4.
 const genero = prompt("Qual o gênero do filme?");
 const ingresso = Number(prompt("Qual o valor do ingresso?"));
 
-if(genero.toLowerCase() === "fantasia" && ingresso < 15){
-  console.log("Bom filme!")
-}else{
-  console.log("Escolha outro filme :(")
+if (genero.toLowerCase() === "fantasia" && ingresso < 15) {
+  console.log("Bom filme!");
+} else {
+  console.log("Escolha outro filme :(");
 }
-
 
 //Desafios
 //1.
 const generoDesafio = prompt("Qual o gênero do filme?");
 const ingressoDesafio = Number(prompt("Qual o valor do ingresso?"));
 
-if(generoDesafio.toLowerCase() === "fantasia" && ingressoDesafio < 15){
+if (generoDesafio.toLowerCase() === "fantasia" && ingressoDesafio < 15) {
   const lanche = prompt("Qual lanche você vai comprar?");
-  console.log("Bom filme!", `Aproveite o seu ${lanche}`)
-}else{
-  console.log("Escolha outro filme :(")
+  console.log("Bom filme!", `Aproveite o seu ${lanche}`);
+} else {
+  console.log("Escolha outro filme :(");
 }
-
-
 
 //2.
 const nomeCompleto = prompt("Digite seu nome completo");
@@ -104,20 +101,20 @@ let valorIngresso;
 console.log(`Nome do cliente: ${nomeCompleto}`);
 
 //tipo de jogo
-if(tipoJogo === "DO"){
+if (tipoJogo === "DO") {
   console.log("Tipo do jogo:  Nacional ");
-}else{
+} else {
   console.log("Tipo do jogo:  Internacional ");
 }
 
 //etapa do jogo
-if(etapaJogo === "SF"){
+if (etapaJogo === "SF") {
   semi();
   console.log("Etapa do jogo: Semifinais");
-}else if (etapaJogo === "DT"){
+} else if (etapaJogo === "DT") {
   terceiroLugar();
   console.log("Etapa do jogo: Decisão do 3º lugar");
-}else {
+} else {
   final();
   console.log("Etapa do jogo: Final");
 }
@@ -125,46 +122,46 @@ if(etapaJogo === "SF"){
 console.log(`Categoria: ${categoria}`);
 console.log(`Quantidade de Ingressos: ${quantidadeIngresso}`);
 
-function semi(){
-  if(categoria === 1){
+function semi() {
+  if (categoria === 1) {
     valorIngresso = 1320;
-  }else if(categoria === 2){
+  } else if (categoria === 2) {
     valorIngresso = 880;
-  }else if(categoria === 3){
+  } else if (categoria === 3) {
     valorIngresso = 550;
   } else {
     valorIngresso = 220;
   }
 }
 
-function terceiroLugar(){
-  if(categoria === 1){
+function terceiroLugar() {
+  if (categoria === 1) {
     valorIngresso = 660;
-  }else if(categoria === 2){
+  } else if (categoria === 2) {
     valorIngresso = 440;
-  }else if(categoria === 3){
+  } else if (categoria === 3) {
     valorIngresso = 330;
   } else {
     valorIngresso = 170;
   }
 }
 
-function final(){
-  if(categoria === 1){
+function final() {
+  if (categoria === 1) {
     valorIngresso = 1980;
-  }else if(categoria === 2){
+  } else if (categoria === 2) {
     valorIngresso = 1320;
-  }else if(categoria === 3){
+  } else if (categoria === 3) {
     valorIngresso = 880;
   } else {
     valorIngresso = 330;
   }
 }
 
-if(tipoJogo === "DO"){
+if (tipoJogo === "DO") {
   console.log(`Valor do ingresso: R$ ${valorIngresso}`);
   console.log(`Valor total: R$ ${valorIngresso * quantidadeIngresso}`);
-}else{
-  console.log(`Valor do ingresso: U$ ${valorIngresso / 4.10}`);
-  console.log(`Valor total: R$ ${(valorIngresso * quantidadeIngresso) / 4.10}`);
+} else {
+  console.log(`Valor do ingresso: U$ ${valorIngresso / 4.1}`);
+  console.log(`Valor total: R$ ${(valorIngresso * quantidadeIngresso) / 4.1}`);
 }
