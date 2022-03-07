@@ -32,7 +32,12 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+  const pares = array.filter((num) => {
+    return num % 2 === 0
+   })
+   return pares.map((num) => {
+     return num * num;
+   });
 }
 
 // EXERCÍCIO 06
