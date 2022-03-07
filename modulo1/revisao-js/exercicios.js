@@ -16,7 +16,10 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-  
+  function comparar(a , b) {
+    return a - b;
+  }
+  return array.sort(comparar);
 }
 
 // EXERCÍCIO 04
