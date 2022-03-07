@@ -85,7 +85,14 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 }
 
 // EXERCÍCIO 10
-function retornaSegundoMaiorESegundoMenor(array) {}
+function retornaSegundoMaiorESegundoMenor(array) {
+  function comparar(a, b) {
+    return a - b;
+  }
+  const arrayOrdenado = array.sort(comparar);
+  return [arrayOrdenado[arrayOrdenado.length-2], arrayOrdenado[1]];
+}
+
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {}
