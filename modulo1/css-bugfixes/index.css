@@ -136,6 +136,11 @@ td button {
     height: 100px;
 }
 
+.container-do-search input{
+    border: none;
+    border-bottom: solid 2px;
+}
+
 .back-button{
     text-align: center;
 }
