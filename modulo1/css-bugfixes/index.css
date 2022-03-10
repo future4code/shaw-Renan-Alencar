@@ -79,6 +79,15 @@ div img {
     padding: 15px 0px;
 }
 
+ol>li:first-child{
+    padding-top: 15px;
+}
+
+h3{
+    padding-top: 15px;
+}
+
+
 #container-para-comprar {
     background-color: #e7eb90;
 }
