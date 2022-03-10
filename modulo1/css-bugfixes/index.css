@@ -66,6 +66,13 @@ div>p:first-child {
     width: 20px;
 }
 
+.icone:hover{
+    opacity: 0.5;
+}
+.icone:active{
+    opacity: 1;
+}
+
 
 /** 
   *
@@ -168,4 +175,3 @@ td button {
 .container-compras td{
     padding: 0 70px;
 }
-
