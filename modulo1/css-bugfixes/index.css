@@ -113,6 +113,7 @@ div:last-child {
 
 table {
     width: 60%;
+    display: inline;
 }
 
 td button {
@@ -125,9 +126,13 @@ td button {
 
 .container-do-search {
     margin-top: 20px;
+    margin: 0 auto;;
     height: 100px;
 }
 
+.back-button{
+    text-align: center;
+}
 
 #back-button {
     background-color: white;
@@ -141,4 +146,8 @@ td button {
 
 #back-button:hover {
     background-color: #635a3d
+}
+
+.container-compras{
+    text-align: center;
 }
