@@ -112,6 +112,8 @@ font-size: 1.5rem;
 h4 {
   padding: 3rem;
   font-size: 2.2rem;
+  width: 100%;
+  text-align: center;
 }
 
 .paragraph-topic {
@@ -119,7 +121,63 @@ h4 {
   color: #444;
 }
 
-/* Different end */
+.img-habilidade{
+  width: 100%;
+  height: 150px;
+}
+
+
+
+/* hebilidades end */
+
+/* Poejtos */ 
+
+.projetos {
+  grid-column: 2 / 10;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  padding-top: 10rem;
+}
+
+.img-projeto{
+  width: 300px;
+  height: 200px;
+}
+
+/* Projetos end */
+
+/* Contato */
+
+.contato{
+  grid-column: 4 / 10;
+}
+
+.form{
+  display: grid;
+  width: 400px;
+  font-size: 1.7rem;
+}
+
+label{
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+input{
+  padding: 5px;
+}
+
+#mensagem{
+  padding: 15px;
+}
+
+#enviar{
+ margin-top: 20px;
+ width: 70px;
+ height: 30px;
+}
+
+/* Contato end */
 
 .footer {
   grid-column: 2 / 10;
@@ -165,7 +223,3 @@ h4 {
   padding: 0 15px;
 }
 
-.topic img{
-  width: 150px;
-  height: 150px;
-}
