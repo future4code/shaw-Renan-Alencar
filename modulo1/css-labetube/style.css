@@ -83,5 +83,45 @@ h2 {
 }
 
 video {
-  width: 50.5rem;
+  width: 60vw;
+}
+
+/* responsivo  index*/
+
+/* celular */
+
+@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  header {
+    padding: 1.4rem 1.25rem;
+  }
+
+  input {
+    width: 3.75rem;
+  }
+
+  .nav-videos {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    margin-top: 0.938rem;
+    justify-content: center;
+  }
+}
+
+/* tablet  */
+
+@media screen and (min-device-width: 481px) and (max-device-width: 800px) {
+  header {
+    padding: 1.4rem 1.25rem;
+  }
+
+  .nav-videos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer {
+    margin-top: 0.938rem;
+    justify-content: center;
+  }
 }
