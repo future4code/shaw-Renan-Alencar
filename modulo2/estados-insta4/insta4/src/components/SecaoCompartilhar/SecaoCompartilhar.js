@@ -5,32 +5,63 @@ const CompartilharContainer = styled.div`
     display: flex;
     justify-content: center;
     padding: 5px;
+
+    div{
+      flex-direction: column;
+    }
 `
+
+const InputComentario = styled.input`
+    width: 100%;
+    margin-right: 5px;
+`
+
+const Button = styled.button`
+  margin: 5px;
+`
+
 
   class SecaoCompartilhar extends React.Component{
     state= {
       botao: '',
-      compartilhar: false
+      compartilhar: false,
+      comentario: ''
     }
     
-    onClickCompartilhar = (event) => {
+    onChangeComentario = (event) => {
+      this.setState({comentario: event.target.value});
+    }
 
+    onClickCompartilhar = (event) => {
       this.setState({
         botao: event.target.value,
-        compartilhar: true
+        compartilhar: true,
       })
+    }
+
+    limparComentario = () => {
+      this.setState({comentario: ''})
     }
 
   render(){
 
     if(this.state.compartilhar){
-      console.log(`Post compartilhado no ${this.state.botao}`)
+      console.log(`Post compartilhado no ${this.state.botao} com a mensagem: ${this.state.comentario}`);
     }
 
     return <CompartilharContainer>
-      <button onClick={this.onClickCompartilhar} value="Facebook">Facebook </button>
-      <button onClick={this.onClickCompartilhar} value="Instagram">Instagram</button>
-      <button onClick={this.onClickCompartilhar} value="Twitter">Twitter</button>
+      <div>
+        <Button onClick={this.onClickCompartilhar} value="Facebook">Facebook </Button>
+        <Button onClick={this.onClickCompartilhar} value="Instagram">Instagram</Button>
+        <Button onClick={this.onClickCompartilhar} value="Twitter">Twitter</Button>
+        <div>
+          <InputComentario 
+          placeholder={'Comentário'}
+          value={this.state.comentario}
+          onChange={this.onChangeComentario}
+          />
+        </div>
+      </div>
     </CompartilharContainer>
   }
 }
