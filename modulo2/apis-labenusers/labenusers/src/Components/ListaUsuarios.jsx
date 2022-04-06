@@ -30,6 +30,7 @@ class ListaUsuarios extends React.Component {
       .delete(url, headers)
       .then(() => {
         alert("usuário deletado");
+        this.listaUsuarios()
       })
       .catch(() => {
         alert("usuário não deletado");
@@ -47,6 +48,7 @@ class ListaUsuarios extends React.Component {
     });
     return (
       <div>
+        <button onClick={this.props.criarUsuario}>Mudar Tela</button>
         {mostrarLista}
       </div>
     );

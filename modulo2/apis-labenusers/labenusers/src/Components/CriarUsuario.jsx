@@ -42,14 +42,14 @@ class CriarUsuario extends React.Component {
   render() {
     return (
       <div>
+        <button onClick={this.props.listaUsuarios}>Mudar Tela</button>
+        <h2>Cadastrar Usuário</h2>
         <input
-          type="text"
           placeholder="Usuário"
           value={this.state.inputNome}
           onChange={this.onChangeNome}
         />
         <input
-          type="text"
           placeholder="E-mail"
           value={this.state.inputEmail}
           onChange={this.onChangeEmail}

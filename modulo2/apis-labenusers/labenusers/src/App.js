@@ -5,30 +5,31 @@ import CriarUsuario from "./Components/CriarUsuario";
 
 class App extends React.Component {
   state = {
-    paginaExibicao: false,
+    paginaExibicao: "cadastro",
   };
 
-  trocarPagina = () => {
-    this.setState({ paginaExibicao: !this.state.paginaExibicao });
-  };
-
-  render() {
-    let pagina;
-
+  pagina = () => {
     switch (this.state.paginaExibicao) {
-      case false:
-        pagina = <CriarUsuario />;
-        break;
-      case true:
-        pagina = <ListaUsuarios />;
-        break;
+      case "cadastro":
+        return <CriarUsuario listaUsuarios={this.listaUsuarios}/>;
+      case "listaUsuario":
+        return <ListaUsuarios criarUsuario={this.criarUsuario}/>;
       default:
     }
+  }
 
+  criarUsuario = () => {
+    this.setState({ paginaExibicao: "cadastro" });
+  };
+
+  listaUsuarios = () => {
+    this.setState({ paginaExibicao: "listaUsuario" });
+  };
+
+  render() {    
     return (
       <div>
-        <button onClick={this.trocarPagina}>Mudar Tela</button>
-        {pagina}
+        {this.pagina()}
       </div>
     );
   }
