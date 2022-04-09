@@ -8,19 +8,30 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-    input{
-      padding: 8px;
-      margin-right: 15px;
-    }
+  margin-top: 30px;
 
-    button{
-      padding: 8px 10px;
-    }
-`
+  h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+`;
 
 const Label = styled.div`
-  margin: 30px 0;
-`
+  input {
+    padding: 8px;
+    margin-right: 15px;
+  }
+  button {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+`;
+
+const ButtonVisualizar = styled.button`
+  margin-top: 30px;
+  padding: 8px 10px;
+  cursor: pointer;
+`;
 
 class CriarPlaylist extends React.Component {
   state = {
@@ -48,7 +59,7 @@ class CriarPlaylist extends React.Component {
   render() {
     return (
       <MainContainer>
-        <h2>Criar Playlist</h2>
+        <h1>Criar Playlist</h1>
         <Label>
           <input
             placeholder="Nome da Playlist"
@@ -57,9 +68,9 @@ class CriarPlaylist extends React.Component {
           />
           <button onClick={this.createPlaylist}>Criar Playlist</button>
         </Label>
-        <button onClick={() => this.props.goPagina("visualizarPlaylist")}>
+        <ButtonVisualizar onClick={() => this.props.goPagina("visualizarPlaylist")}>
           Visualizar PlayList
-        </button>
+        </ButtonVisualizar>
       </MainContainer>
     );
   }

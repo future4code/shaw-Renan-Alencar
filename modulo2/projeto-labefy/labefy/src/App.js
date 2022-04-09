@@ -9,6 +9,8 @@ const MainContainer = styled.div`
   justify-content: center;
 `
 
+
+
 class App extends React.Component {
   state = {
     paginaAtual: "criarPlaylist",
