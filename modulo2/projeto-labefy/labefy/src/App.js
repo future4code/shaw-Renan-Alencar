@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CriarPlaylist from "./pages/CriarPlaylist/CriarPlaylist";
+import VisualizarPlaylist from "./pages/VisualizarPlaylist/VisualizarPlaylist";
+import DetalhesPlaylist from "./pages/DetalhesPlaylist/DetalhesPlaylist";
+import styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+class App extends React.Component {
+  state = {
+    paginaAtual: "criarPlaylist",
+    idPlaylist: "",
+    nomePlaylist: "",
+  };
+
+  mudarPagina = (goPagina) => {
+    this.setState({ paginaAtual: goPagina });
+  };
+
+  pegaIdPlaylist = (playlist) => {
+    this.setState({ idPlaylist: playlist });
+  };
+
+  pegarNomePlaylist = (name) => {
+    this.setState({ nomePlaylist: name });
+  };
+
+  selecionarPagina = () => {
+    switch (this.state.paginaAtual) {
+      case "criarPlaylist":
+        return <CriarPlaylist goPagina={this.mudarPagina} />;
+
+      case "detalhes":
+        return (
+          <DetalhesPlaylist
+            goPagina={this.mudarPagina}
+            idPlaylist={this.state.idPlaylist}
+            nomePlaylist={this.state.nomePlaylist}
+          />
+        );
+      case "visualizarPlaylist":
+        return (
+          <VisualizarPlaylist
+            goPagina={this.mudarPagina}
+            pegaIdPlaylist={this.pegaIdPlaylist}
+            pegarNomePlaylist={this.pegarNomePlaylist}
+          />
+        );
+      default:
+        return <CriarPlaylist goPagina={this.mudarPagina}/>;
+    }
+  };
+
+  render() {
+    return <MainContainer>{this.selecionarPagina()}</MainContainer>;
+  }
 }
 
 export default App;
