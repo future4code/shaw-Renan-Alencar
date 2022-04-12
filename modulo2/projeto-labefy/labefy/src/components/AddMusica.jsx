@@ -101,7 +101,6 @@ class AddMusica extends React.Component {
         </Form>
 
         <span>
-          {" "}
           <button onClick={this.addTrackToPlaylist}>Adicionar</button>
         </span>
       </MainContainer>
