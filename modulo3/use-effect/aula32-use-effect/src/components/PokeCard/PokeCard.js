@@ -20,9 +20,9 @@ const PokeCard = (props) => {
 
   return (
     <div className="container">
-      <p>{pokemon.name.toUpperCase()}</p>
+      <p>{pokemon.name}</p>
       <p>{pokemon.weight} KG</p>
-      {pokemon.types && <p>{pokemon.types[0].type.name.toUpperCase()}</p>}
+      {pokemon.types && <p>{pokemon.types[0].type.name}</p>}
       {pokemon.sprites && (
         <img src={pokemon.sprites.front_default} alt="Foto do Pokemon" />
       )}
