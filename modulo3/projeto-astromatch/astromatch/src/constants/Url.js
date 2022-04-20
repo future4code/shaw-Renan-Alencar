@@ -1,0 +1,1 @@
+export const Base_url = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/renan-martinez-shaw";
