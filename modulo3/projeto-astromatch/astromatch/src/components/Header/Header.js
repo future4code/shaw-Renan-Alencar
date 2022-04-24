@@ -12,8 +12,9 @@ export const Header = (props) => {
 
   return (
     <div>
-      Header
+      
       <button onClick={inicial}>Inicial</button>
+      AstroMatch
       <button onClick={matches}>Matches</button>
     </div>
   );

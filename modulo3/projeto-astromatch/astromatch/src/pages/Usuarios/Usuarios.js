@@ -1,20 +1,9 @@
 import React, { useEffect } from 'react'
 import axios from 'axios';
 import { Base_url } from "../../constants/Url"
-import styled from "styled-components"
 import ChoosePerson from '../../components/ChoosePerson/ChoosePerson';
+import CardUsuario from '../../components/CardUsuario/CardUsuario';
 
-const Lista = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid 1px black;
-
-  img{
-    width: 200px;
-  }
-
-`
 
 const Usuarios = () => {
 
@@ -40,12 +29,7 @@ const Usuarios = () => {
   return (
     <div>
       <div>
-        <Lista>
-          <p><img src={perfil.photo} alt="Foto do usuário" /> </p>
-          <p>{perfil.name}</p>
-          <p>{perfil.age}</p>
-          <p>{perfil.bio}</p>
-        </Lista>
+        <CardUsuario perfil={perfil} />
         <ChoosePerson atualizando={atualizando} id={perfil.id}/>
       </div>
     </div>
