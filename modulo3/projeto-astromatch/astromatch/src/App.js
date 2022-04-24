@@ -1,31 +1,34 @@
-import React from 'react'
-import { Header } from './components/Header/Header'
-import Matchs from './pages/Matches/Matches'
-import Usuarios from './pages/Usuarios/Usuarios'
+import React from "react";
+import { Header } from "./components/Header/Header";
+import Matches from "./pages/Matches/Matches";
+import Usuarios from "./pages/Usuarios/Usuarios";
+import { MainContainer, DivContainer } from "./styled";
 
 const App = () => {
-  const [ atualizarPagina, setAtualizarPagina] = React.useState('usuarios')
+  const [atualizarPagina, setAtualizarPagina] = React.useState("matches");
 
   const mudarPagina = () => {
-    switch (atualizarPagina){
-      case 'usuarios':
-        return (<Usuarios />)
-      case 'matches':
-        return (<Matchs />)
+    switch (atualizarPagina) {
+      case "usuarios":
+        return <Usuarios />;
+      case "matches":
+        return <Matches />;
       default:
-        return (<Usuarios />)
+        return <Usuarios />;
     }
-  }
+  };
 
   const onChangePagina = (value) => {
-    setAtualizarPagina(value)
-  }
+    setAtualizarPagina(value);
+  };
   return (
-    <div>
-      <Header onChangePagina={onChangePagina}/>
-      {mudarPagina()}
-    </div>
-  )
-}
+    <MainContainer>
+      <DivContainer>
+        <Header onChangePagina={onChangePagina} />
+        {mudarPagina()}
+      </DivContainer>
+    </MainContainer>
+  );
+};
 
-export default App
+export default App;

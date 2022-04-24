@@ -1,28 +1,20 @@
 import React from 'react'
-import styled from "styled-components"
+import { MainContainer } from "./styled"
 
-const Lista = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid 1px black;
-
-  img{
-    width: 200px;
-  }
-`
 
 const CardUsuario = (props) => {
   return (
-    <div>
-      <Lista>
-          <p><img src={props.perfil.photo} alt="Foto do usuário" /> </p>
-          <p>{props.perfil.name}</p>
+    <MainContainer>
+      <img src={props.perfil.photo} alt="Foto do usuário" />
+      <div>
+        <span>
+          <h2>{props.perfil.name}</h2>
           <p>{props.perfil.age}</p>
-          <p>{props.perfil.bio}</p>
-        </Lista>
-    </div>
-  )
+        </span>
+        <p>{props.perfil.bio}</p>
+      </div>
+    </MainContainer>
+  );
 }
 
 export default CardUsuario

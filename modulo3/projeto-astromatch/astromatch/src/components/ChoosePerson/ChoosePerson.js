@@ -1,6 +1,9 @@
 import React from 'react'
 import axios from 'axios';
 import { Base_url } from "../../constants/Url"
+import { Button } from './styled';
+import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
 
 const ChoosePerson = (props) => {
 
@@ -24,12 +27,15 @@ const ChoosePerson = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={onChange}>Descartar</button>
-      <button onClick={deuMatch}>Curtir</button>
-
-    </div>
-  )
+    <Button>
+      <button className='deslike' onClick={onChange}>
+        <ThumbDownAltOutlinedIcon color="error" fontSize='large'/>
+      </button>
+      <button className='like' onClick={deuMatch}>
+        <ThumbUpOutlinedIcon color="success" fontSize='large'/>
+      </button>
+    </Button>
+  );
 }
 
 export default ChoosePerson;
