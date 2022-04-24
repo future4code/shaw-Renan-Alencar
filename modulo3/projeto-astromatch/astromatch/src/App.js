@@ -5,7 +5,7 @@ import Usuarios from "./pages/Usuarios/Usuarios";
 import { MainContainer, DivContainer } from "./styled";
 
 const App = () => {
-  const [atualizarPagina, setAtualizarPagina] = React.useState("matches");
+  const [atualizarPagina, setAtualizarPagina] = React.useState("usuarios");
 
   const mudarPagina = () => {
     switch (atualizarPagina) {
