@@ -7,8 +7,8 @@ import {ListaMatches, Button} from './styled'
 const Matchs = () => {
   const [matches, setMatches] = React.useState("");
 
-  useEffect(() => {
-    axios
+  const getMatches = async () => {
+    await axios
       .get(`${Base_url}/matches`)
       .then((res) => {
         setMatches(res.data.matches);
@@ -17,6 +17,10 @@ const Matchs = () => {
       .catch((err) => {
         alert("Ocorreu um erro, tente novamente");
       });
+  }
+
+  useEffect(() => {
+    getMatches();
   }, []);
 
   return (

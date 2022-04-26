@@ -16,7 +16,7 @@ const ChoosePerson = (props) => {
       id: props.id,
       choice: true,
     };
-    axios
+    await axios
       .post(`${Base_url}/choose-person`, body)
       .then((res) => {
         props.atualizando();
