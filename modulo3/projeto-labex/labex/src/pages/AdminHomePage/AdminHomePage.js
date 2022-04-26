@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminHomePage = () => {
-  return (
-    <div>AdminHomePage</div>
-  )
-}
+  const navigate = useNavigate();
 
-export default AdminHomePage
+  const goToCreatTrip = () => {
+    navigate("/admin/trips/create");
+  };
+
+  const toBack = () => {
+    navigate(-1);
+  };
+  return (
+    <div>
+      AdminHomePage
+      <button onClick={goToCreatTrip}>Criar Viagem</button>
+      <button onClick={toBack}>Voltar</button>
+      <button>Logout</button>
+    </div>
+  );
+};
+
+export default AdminHomePage;
