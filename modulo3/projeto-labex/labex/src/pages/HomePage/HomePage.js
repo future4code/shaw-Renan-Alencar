@@ -1,22 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { goToListTrip, goToLoignPage } from '../../routes/coordinator'
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  const goToListTrip = () => {
-    navigate('/trips/list')
-  }
-
-  const goToLoignPage = () => {
-    navigate('/login')
-  }
-
   return (
     <div>
       HomePage
-      <button onClick={goToListTrip}>Lista Trip</button>
-      <button onClick={goToLoignPage}>Logar</button>
+      <button onClick={() => goToListTrip(navigate)}>Lista Trip</button>
+      <button onClick={() => goToLoignPage(navigate)}>Logar</button>
     </div>
   )
 }

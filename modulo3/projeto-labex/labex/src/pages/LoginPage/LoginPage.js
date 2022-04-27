@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { goToAdminHome,  goBack} from '../../routes/coordinator'
 
 
 /* 
@@ -16,18 +17,11 @@ import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const goToAdminHome = () => {
-    navigate("/admin/trips/list");
-  };
-
-  const toBack = () => {
-    navigate(-1);
-  };
   return (
     <div>
       LoginPage
-      <button onClick={goToAdminHome}>Logar</button>
-      <button onClick={toBack}>Voltar</button>
+      <button onClick={() => goToAdminHome(navigate)}>Logar</button>
+      <button onClick={() => goBack(navigate)}>Voltar</button>
     </div>
   );
 };
