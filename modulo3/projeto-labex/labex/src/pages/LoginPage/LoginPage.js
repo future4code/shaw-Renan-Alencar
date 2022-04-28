@@ -19,7 +19,11 @@ const LoginPage = () => {
 
   return (
     <div>
-      LoginPage
+      <h2>LoginPage</h2>
+      <div>
+      <input placeholder="Login" />
+      <input placeholder="Senha" />
+      </div>
       <button onClick={() => goToAdminHome(navigate)}>Logar</button>
       <button onClick={() => goBack(navigate)}>Voltar</button>
     </div>

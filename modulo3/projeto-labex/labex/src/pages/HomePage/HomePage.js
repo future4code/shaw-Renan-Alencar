@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div>
-      HomePage
+      <h2>HomePage</h2>
       <button onClick={() => goToListTrip(navigate)}>Lista Trip</button>
       <button onClick={() => goToLoignPage(navigate)}>Logar</button>
     </div>
