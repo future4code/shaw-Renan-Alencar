@@ -1,17 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToCreatTrip, goBack } from "../../routes/coordinator";
+import { goToCreatTrip, goToDetailsPage } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
-import { useRequestData } from "../../hooks/useRequestData";
+import { useRequestData, useProtectedPage } from "../../hooks/useRequestData";
 import { Trips } from "./styled";
 
 const AdminHomePage = () => {
+  useProtectedPage();
   const navigate = useNavigate();
   const listTrip = useRequestData(`${BASE_URL}/trips`, {});
-
-  const details = () => {
-    console.log("linkar na pagina detalhes da viagem")
-  }
 
   const trips =
     listTrip.trips &&
@@ -19,20 +16,25 @@ const AdminHomePage = () => {
       return (
         <Trips key={trip.id}>
           <div>
-            <p onClick={details}>Nome {trip.name}</p>
+            <p onClick={() => goToDetailsPage(navigate, trip.id)}>Nome {trip.name}</p>
             <button>excluir</button>
           </div>
         </Trips>
       );
     });
 
+  const logout = () => {
+    localStorage.removeItem('token');
+    navigate('/login')
+    }
+
   return (
     <div>
       <h2>AdminHomePage</h2>
 
       <button onClick={() => goToCreatTrip(navigate)}>Criar Viagem</button>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <button>Logout</button>
+      <button onClick={() => navigate('/')}>Voltar</button>
+      <button onClick={logout}>Logout</button>
       {trips}
     </div>
   );

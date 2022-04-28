@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { goBack } from '../../routes/coordinator'
+import { useProtectedPage } from "../../hooks/useRequestData";
 
 const CreateTripPage = () => {
+  useProtectedPage();
   const navigate = useNavigate();
 
   return (

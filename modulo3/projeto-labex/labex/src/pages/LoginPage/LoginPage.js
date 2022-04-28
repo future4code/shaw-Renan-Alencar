@@ -1,8 +1,8 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
-import { goToAdminHome, goBack } from "../../routes/coordinator";
+import { goBack } from "../../routes/coordinator";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -25,11 +25,19 @@ const LoginPage = () => {
     axios
       .post(`${BASE_URL}/login`, body)
       .then((res) => {
-        console.log(res.data.token);
+        navigate("/admin/trips/list")
         localStorage.setItem('token', res.data.token)
       })
       .catch((err) => console.log(err.response));
   };
+
+  useEffect(() => {
+    // const token = localStorage.getItem("token");
+
+    if(localStorage.getItem("token")) {
+      navigate("/admin/trips/list")
+    }
+  })
 
   return (
     <div>
@@ -50,7 +58,7 @@ const LoginPage = () => {
         />
       </div>
       <button onClick={onSubmitLogin}>Logar</button>
-      <button onClick={() => goToAdminHome(navigate)}>IR Admn Home</button>
+      {/* <button onClick={() => goToAdminHome(navigate)}>IR Admn Home</button> */}
       <button onClick={() => goBack(navigate)}>Voltar</button>
     </div>
   );
