@@ -9,13 +9,17 @@ const AdminHomePage = () => {
   const navigate = useNavigate();
   const listTrip = useRequestData(`${BASE_URL}/trips`, {});
 
+  const details = () => {
+    console.log("linkar na pagina detalhes da viagem")
+  }
+
   const trips =
     listTrip.trips &&
     listTrip.trips.map((trip) => {
       return (
         <Trips key={trip.id}>
           <div>
-            <p>Nome {trip.name}</p>
+            <p onClick={details}>Nome {trip.name}</p>
             <button>excluir</button>
           </div>
         </Trips>
