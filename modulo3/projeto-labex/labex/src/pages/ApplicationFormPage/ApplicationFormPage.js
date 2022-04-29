@@ -31,7 +31,6 @@ const ApplicationFormPage = () => {
         return viagem.name;
       });
 
-      // console.log(`${BASE_URL}/trips/${params.id}/apply` );
   const enviar = (event) => {
     event.preventDefault();
     axios.post(`${BASE_URL}/trips/${params.id}/apply`, form)
