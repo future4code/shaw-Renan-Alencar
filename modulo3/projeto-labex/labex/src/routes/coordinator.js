@@ -27,6 +27,6 @@ export const goToDetailsPage = (navigate, id) => {
 };
 
 //ListTripsPage
-export const goToApplicationForm = (navigate) => {
-  navigate('/trips/application')
+export const goToApplicationForm = (navigate, id) => {
+  navigate(`/trips/application/${id}`)
 }

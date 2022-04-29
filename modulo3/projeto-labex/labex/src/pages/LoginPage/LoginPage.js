@@ -28,12 +28,12 @@ const LoginPage = () => {
         navigate("/admin/trips/list")
         localStorage.setItem('token', res.data.token)
       })
-      .catch((err) => console.log(err.response));
+      .catch((err) => {
+        alert("Login ou senha não autorizado")
+      });
   };
 
   useEffect(() => {
-    // const token = localStorage.getItem("token");
-
     if(localStorage.getItem("token")) {
       navigate("/admin/trips/list")
     }
@@ -58,7 +58,6 @@ const LoginPage = () => {
         />
       </div>
       <button onClick={onSubmitLogin}>Logar</button>
-      {/* <button onClick={() => goToAdminHome(navigate)}>IR Admn Home</button> */}
       <button onClick={() => goBack(navigate)}>Voltar</button>
     </div>
   );

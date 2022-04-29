@@ -23,7 +23,7 @@ const ListTripsPage = () => {
             <p>Descrição {trip.description}</p>
             <p>Duração {trip.durationInDays} dias</p>
             <p>Data {trip.date}</p>
-            <Button onClick={() => goToApplicationForm(navigate)} size="small">
+            <Button onClick={() => goToApplicationForm(navigate, trip.id)} size="small">
               Inscrever-se
             </Button>
           </Card>
