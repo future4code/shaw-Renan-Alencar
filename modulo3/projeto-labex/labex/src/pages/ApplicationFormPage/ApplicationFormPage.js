@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useRequestData } from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/Base_url";
 import { useForm } from "../../hooks/useForm";
+import axios from "axios";
 
 const ApplicationFormPage = () => {
   const navigate = useNavigate();
@@ -30,10 +31,17 @@ const ApplicationFormPage = () => {
         return viagem.name;
       });
 
+      // console.log(`${BASE_URL}/trips/${params.id}/apply` );
   const enviar = (event) => {
     event.preventDefault();
-    console.log(form);
-    cleanFields();
+    axios.post(`${BASE_URL}/trips/${params.id}/apply`, form)
+    .then((res) => {
+      console.log(res.data)
+      cleanFields();
+    })
+    .catch((err) => {
+      console.log(err.response)
+    })
   };
 
   return (
@@ -88,6 +96,7 @@ const ApplicationFormPage = () => {
             title={"A candidatura deve ter no mínimo  30 caracteres"}
           />
           <button>Enviar</button>
+          <button onClick={() => goBack(navigate)}>Voltar</button>
         </form>
       </div>
     </MainContainer>
