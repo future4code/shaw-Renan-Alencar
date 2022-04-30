@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { goToCreatTrip, goToDetailsPage } from "../../routes/coordinator";
+import { goToCreatTrip, goToDetailsPage, logout } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
-import {
-  useRequestData,
-  useProtectedPage,
-  useRequestDelete,
-} from "../../hooks/useRequestData";
+import { useRequestData, useProtectedPage } from "../../hooks/useRequestData";
 import { Trips } from "./styled";
 import axios from "axios";
+import { Header } from "../Header/Header";
 
 const AdminHomePage = () => {
   useProtectedPage();
@@ -26,10 +23,10 @@ const AdminHomePage = () => {
       .delete(`${BASE_URL}/trips/${id}`, HEADER)
       .then((res) => {
         navigate("/login");
-        console.log("deletado");
+        alert("Viagem deletada com sucesso!")
       })
       .catch((err) => {
-        console.log("Falha ao deletar");
+        alert("Houve um erro, tente novamente!")
       });
   };
 
@@ -55,11 +52,14 @@ const AdminHomePage = () => {
 
   return (
     <div>
+      <Header 
+      first={{function: goToCreatTrip, text: "Criar Viagem",}}
+      second={{function: logout, text: "Sair",}}
+      />
       <h2>AdminHomePage</h2>
 
       <button onClick={() => goToCreatTrip(navigate)}>Criar Viagem</button>
       <button onClick={() => navigate("/")}>Voltar</button>
-      <button onClick={logout}>Logout</button>
       {trips}
     </div>
   );

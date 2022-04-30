@@ -1,12 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goBack } from "../../routes/coordinator";
+import { goBack, goToLoignPage, goHome } from "../../routes/coordinator";
 import { MainContainer } from "./styled";
 import { useParams } from "react-router-dom";
 import { useRequestData } from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/Base_url";
 import { useForm } from "../../hooks/useForm";
 import axios from "axios";
+import { Header } from "../Header/Header";
+
 
 const ApplicationFormPage = () => {
   const navigate = useNavigate();
@@ -45,6 +47,10 @@ const ApplicationFormPage = () => {
 
   return (
     <MainContainer>
+      <Header 
+      first={{function: goHome, text: "Inicio",}}
+      second={{function: goToLoignPage, text: "Login",}}
+      />
       ApplicationFormPage
       <button onClick={() => goBack(navigate)}>Voltar</button>
       <div>

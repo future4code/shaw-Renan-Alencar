@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
-import { goBack } from "../../routes/coordinator";
+import { goBack, goToListTrip, goHome } from "../../routes/coordinator";
+import { Header } from "../Header/Header";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -41,6 +42,10 @@ const LoginPage = () => {
 
   return (
     <div>
+      <Header
+      first={{function: goToListTrip, text: "Viagens",}}
+      second={{function: goHome, text: "Início",}}
+      />
       <h2>LoginPage</h2>
       <div>
         <input

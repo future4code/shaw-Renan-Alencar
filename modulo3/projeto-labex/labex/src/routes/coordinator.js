@@ -3,6 +3,10 @@ export const goBack = (navigate) => {
   navigate(-1);
 };
 
+export const goHome = (navigate) => {
+  navigate('/')
+}
+
 //HomePage
 export const goToListTrip = (navigate) => {
   navigate('/trips/list')
@@ -25,6 +29,13 @@ export const goToCreatTrip = (navigate) => {
 export const goToDetailsPage = (navigate, id) => {
   navigate(`/admin/trips/${id}`);
 };
+
+export const logout = (navigate) => {
+  localStorage.removeItem("token");
+  navigate(`'/login'`);
+};
+
+
 
 //ListTripsPage
 export const goToApplicationForm = (navigate, id) => {

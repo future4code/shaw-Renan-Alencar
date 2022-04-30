@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goBack } from "../../routes/coordinator";
+import { goBack, logout, goHome } from "../../routes/coordinator";
 import { useProtectedPage } from "../../hooks/useRequestData";
 import { useForm } from "../../hooks/useForm";
 import axios from "axios";
 import { BASE_URL } from "../../constants/Base_url";
+import { Header } from "../Header/Header";
 
 const CreateTripPage = () => {
   useProtectedPage();
@@ -36,7 +37,10 @@ const CreateTripPage = () => {
 
   return (
     <div>
-      <button onClick={createTrip}>teste</button>
+      <Header 
+      first={{function: goHome, text: "Início",}}
+      second={{function: logout, text: "Sair",}}
+      />
       CreateTripPage
       <form onSubmit={createTrip}>
         <input
