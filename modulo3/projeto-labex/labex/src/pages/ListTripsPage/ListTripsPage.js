@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goToApplicationForm, goBack, goHome, goToLoignPage } from "../../routes/coordinator";
-import { Lista } from "./styled";
+import { Lista, Return, CardName } from "./styled";
 
 import * as React from "react";
 import Card from "@mui/material/Card";
@@ -19,15 +19,15 @@ const ListTripsPage = () => {
       return (
         
         <div key={trip.id}>
-          <Card sx={{ minWidth: 275 }}>
-            <p>{trip.planet}</p>
-            <p>Nome {trip.name}</p>
-            <p>Descrição {trip.description}</p>
-            <p>Duração {trip.durationInDays} dias</p>
-            <p>Data {trip.date}</p>
-            <Button onClick={() => goToApplicationForm(navigate, trip.id)} size="small">
+          <Card className="DivCard" color='primary' sx={{ minWidth: 275 }}>
+            <CardName>{trip.planet}</CardName>
+            <p>Nome: {trip.name}</p>
+            <p>Descrição: {trip.description}</p>
+            <p>Duração: {trip.durationInDays} dias</p>
+            <p>Data: {trip.date}</p>
+            <button className="button" onClick={() => goToApplicationForm(navigate, trip.id)} size="small">
               Inscrever-se
-            </Button>
+            </button>
           </Card>
         </div>
       );
@@ -39,11 +39,9 @@ const ListTripsPage = () => {
       first={{function: goHome, text: "Inicio",}}
       second={{function: goToLoignPage, text: "Login",}}
       />
-      ListTripsPage
-      <button onClick={() => goBack(navigate)}>Voltar</button>
-      <span>
         <Lista>{trips}</Lista>
-      </span>
+      <Return onClick={() => goBack(navigate)}>Voltar</Return>
+      
     </div>
   );
 };
