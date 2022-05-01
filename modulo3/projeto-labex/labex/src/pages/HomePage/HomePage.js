@@ -10,7 +10,7 @@ const HomePage = () => {
     <div>
       <Header 
       first={{function: goToListTrip, text: "Viagens",}}
-      second={{function: goToLoignPage, text: "Login",}}
+      second={{function: goToLoignPage, text: "Entrar",}}
       />
 
       <h2>HomePage</h2>

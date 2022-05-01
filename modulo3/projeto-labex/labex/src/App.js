@@ -1,14 +1,14 @@
 import React from 'react';
-import './App.css';
 import { Router } from './routes/Router';
 import Footer from './pages/Footer/Footer';
+import { MainContainer } from './styled'
 
 function App() {
   return (
-    <div className="App">
+    <MainContainer >
       <Router />
       <Footer />
-    </div>
+    </MainContainer>
   );
 }
 
