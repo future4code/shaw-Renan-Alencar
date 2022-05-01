@@ -11,8 +11,6 @@ import { useForm } from "../../hooks/useForm";
 import axios from "axios";
 import { Header } from "../Header/Header";
 
-
-
 const ApplicationFormPage = () => {
   const navigate = useNavigate();
   const params = useParams();
@@ -24,7 +22,7 @@ const ApplicationFormPage = () => {
     profession: "",
     country: "",
   });
-   
+
   //verifica se a getTrips não está vazio e faz um filter pelo ID da viagem e depois um map retornando apenas o nome da viagem.
   const tripSelected =
     getTrips.trips &&
@@ -38,21 +36,26 @@ const ApplicationFormPage = () => {
 
   const enviar = (event) => {
     event.preventDefault();
-    axios.post(`${BASE_URL}/trips/${params.id}/apply`, form)
-    .then((res) => {
-      console.log(res.data)
-      cleanFields();
-    })
-    .catch((err) => {
-      console.log(err.response)
-    })
+    axios
+      .post(`${BASE_URL}/trips/${params.id}/apply`, form)
+      .then((res) => {
+        console.log(res.data);
+        cleanFields();
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
   };
 
   //faz um map no array de paises recebido de constants
   const listPais = PAISES.map((pais) => {
-    return <option key={pais.ordem} value={pais.nome}>{pais.nome}</option>
-  })
- 
+    return (
+      <option key={pais.ordem} value={pais.nome}>
+        {pais.nome}
+      </option>
+    );
+  });
+
   return (
     <div>
       <Header
@@ -95,7 +98,6 @@ const ApplicationFormPage = () => {
               value={form.country}
               name="country"
               onChange={handleChange}
-              placeholder={"País"}
               required
             >
               <option value="">Seleciona um país</option>

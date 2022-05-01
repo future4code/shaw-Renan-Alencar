@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
 import { goBack, goToListTrip, goHome } from "../../routes/coordinator";
 import { Header } from "../Header/Header";
+import { MainForm, ButtonDiv } from "./styled";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -26,28 +27,28 @@ const LoginPage = () => {
     axios
       .post(`${BASE_URL}/login`, body)
       .then((res) => {
-        navigate("/admin/trips/list")
-        localStorage.setItem('token', res.data.token)
+        navigate("/admin/trips/list");
+        localStorage.setItem("token", res.data.token);
       })
       .catch((err) => {
-        alert("Login ou senha não autorizado")
+        alert("Login ou senha não autorizado");
       });
   };
 
   useEffect(() => {
-    if(localStorage.getItem("token")) {
-      navigate("/admin/trips/list")
+    if (localStorage.getItem("token")) {
+      navigate("/admin/trips/list");
     }
-  })
+  });
 
   return (
     <div>
       <Header
-      first={{function: goToListTrip, text: "Viagens",}}
-      second={{function: goHome, text: "Início",}}
+        first={{ function: goToListTrip, text: "Viagens" }}
+        second={{ function: goHome, text: "Início" }}
       />
-      <h2>LoginPage</h2>
-      <div>
+      <MainForm>
+        <h2>Área Administrativa</h2>
         <input
           placeholder="Login"
           type="email"
@@ -61,9 +62,11 @@ const LoginPage = () => {
           value={senha}
           onChange={onChangeSenha}
         />
-      </div>
-      <button onClick={onSubmitLogin}>Logar</button>
-      <button onClick={() => goBack(navigate)}>Voltar</button>
+        <ButtonDiv>
+          <button onClick={onSubmitLogin}>Logar</button>
+          <button onClick={() => goBack(navigate)}>Voltar</button>
+        </ButtonDiv>
+      </MainForm>
     </div>
   );
 };
