@@ -6,7 +6,6 @@ import { Lista, Return, CardName } from "./styled";
 
 import * as React from "react";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
 import { Header } from "../Header/Header";
 
 const ListTripsPage = () => {
