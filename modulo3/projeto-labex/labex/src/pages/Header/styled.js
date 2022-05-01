@@ -18,5 +18,15 @@ export const Buttons = styled.div`
   margin: 10px;
   button{
     margin: 10px 20px ;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #e2eefa;
+    font-weight: bold;
+    :hover{
+      cursor: pointer;
+      background-color:#796a6a;
+      color:#eb6060;
+    }
+
   }
 `
