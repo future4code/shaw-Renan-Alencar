@@ -14,7 +14,7 @@ const HomePage = () => {
       second={{function: goToLoignPage, text: "Entrar",}}
       />
       <Main>
-      <h2>Seja bem-vindo a melhor agencia de viagem espacial do mundo! </h2>
+      <h2>Seja bem-vindo a melhor agência de viagem espacial do mundo! </h2>
       <p>Venha conhecer os melhores destinos para visitar</p>
       <div>
       <button onClick={() => goToListTrip(navigate)}>Viagens</button>

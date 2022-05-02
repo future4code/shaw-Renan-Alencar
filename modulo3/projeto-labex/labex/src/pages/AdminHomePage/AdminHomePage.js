@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { goToCreatTrip, goToDetailsPage, logout } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData, useProtectedPage } from "../../hooks/useRequestData";
-import { Trips } from "./styled";
+import { Trips, MainCoainter } from "./styled";
 import axios from "axios";
 import { Header } from "../Header/Header";
 
@@ -11,7 +11,6 @@ const AdminHomePage = () => {
   useProtectedPage();
   const navigate = useNavigate();
   const listTrip = useRequestData(`${BASE_URL}/trips`, {});
-  // const deletarTrip = useRequestDelete()
 
   const DeleteTrip = (id) => {
     const HEADER = {
@@ -19,15 +18,17 @@ const AdminHomePage = () => {
         auth: localStorage.getItem("token"),
       },
     };
-    axios
-      .delete(`${BASE_URL}/trips/${id}`, HEADER)
-      .then((res) => {
-        navigate("/login");
-        alert("Viagem deletada com sucesso!")
-      })
-      .catch((err) => {
-        alert("Houve um erro, tente novamente!")
-      });
+    if(window.confirm("Tem certeza que deseja deletar essa viagem?")){
+      axios
+        .delete(`${BASE_URL}/trips/${id}`, HEADER)
+        .then((res) => {
+          navigate("/login");
+          alert("Viagem deletada com sucesso!")
+        })
+        .catch((err) => {
+          alert("Houve um erro, tente novamente!")
+        });
+    }
   };
 
   const trips =
@@ -37,9 +38,11 @@ const AdminHomePage = () => {
         <Trips key={trip.id}>
           <div>
             <p onClick={() => goToDetailsPage(navigate, trip.id)}>
-              Nome {trip.name}
+              {trip.name}
             </p>
-            <button onClick={() => DeleteTrip(trip.id)}>excluir</button>
+          </div>
+          <div>
+            <button onClick={() => DeleteTrip(trip.id)}>X</button>
           </div>
         </Trips>
       );
@@ -56,11 +59,14 @@ const AdminHomePage = () => {
       first={{function: goToCreatTrip, text: "Criar Viagem",}}
       second={{function: logout, text: "Sair",}}
       />
-      <h2>AdminHomePage</h2>
+      <MainCoainter>
 
-      <button onClick={() => goToCreatTrip(navigate)}>Criar Viagem</button>
-      <button onClick={() => navigate("/")}>Voltar</button>
+      <h2>Área Administrativa</h2>
+
+      {/* <button onClick={() => goToCreatTrip(navigate)}>Criar Viagem</button>
+      <button onClick={() => navigate("/")}>Voltar</button> */}
       {trips}
+      </MainCoainter>
     </div>
   );
 };

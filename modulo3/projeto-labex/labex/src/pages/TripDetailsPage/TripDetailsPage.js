@@ -7,7 +7,7 @@ import {
   useProtectedPage,
 } from "../../hooks/useRequestData";
 import { useNavigate } from "react-router-dom";
-import { goToAdminHome, goHome, logout, goBack } from "../../routes/coordinator";
+import { logout, goBack } from "../../routes/coordinator";
 import { Header } from "../Header/Header";
 import { Lista, CanditadosDiv, ButtonCandidato, CardViagem } from "./styled";
 
@@ -86,6 +86,7 @@ const TripDetailsPage = () => {
                       >
                         Aprovar
                       </ButtonCandidato>
+                      
                       <ButtonCandidato
                         onClick={() => DecideCandidate(false, candidato.id)}
                       >
