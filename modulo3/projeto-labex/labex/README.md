@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+### LabeX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### O que funciona
+- Feito as rotas do site.
+- Quando usuário faz login é guardado no localStorage o token.
+- Pagina de detalhes do administrador.
+- Usuário só consegue acessar área ADM logado.
+- É possível se inscrever nas viagens.
+- Adm consegue excluir  as viagens.
+- Adm consegue criar novas viagens.
+- Adm consegue aprovar ou reprovar candidato nas viagens.
 
-## Available Scripts
+### O que não funciona
+- Ao aprovar ou reprovar um candidato a página não renderiza para mostrar a atualização. É necessário atualizar manualmente.
+- Responsividade.
 
-In the project directory, you can run:
+### Bibliotecas utilizadas
+- styled-components
+- axios
+- Material-UI
 
-### `npm start`
+### Link Surge 
+http://renan-labex.surge.sh/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+email : astrodev@gmail.com.br
+password: 123456
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Imagens
+![image](https://user-images.githubusercontent.com/69327864/166175492-7be24d71-e076-4428-a18f-56ede245c897.png)
+![image](https://user-images.githubusercontent.com/69327864/166175514-da8f7f3f-cc75-437f-9e6f-61c81b08dc7e.png)
+![image](https://user-images.githubusercontent.com/69327864/166175525-05f01c56-8814-4421-8b90-61f031c0c76d.png)
+![image](https://user-images.githubusercontent.com/69327864/166175540-fc46d581-6a8f-4fd0-9338-5f92c78eacc8.png)
+![image](https://user-images.githubusercontent.com/69327864/166175565-810be6b9-4fec-4065-be49-f3da13ecd511.png)
+![image](https://user-images.githubusercontent.com/69327864/166175695-f76b93ce-59c3-4c4f-86ef-bb4ac70123a0.png)
+![image](https://user-images.githubusercontent.com/69327864/166175710-ab574569-b0a7-436f-b4a1-58fe48e9b331.png)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
