@@ -32,7 +32,7 @@ export const goToDetailsPage = (navigate, id) => {
 
 export const logout = (navigate) => {
   localStorage.removeItem("token");
-  navigate(`'/login'`);
+  navigate('/login');
 };
 
 
