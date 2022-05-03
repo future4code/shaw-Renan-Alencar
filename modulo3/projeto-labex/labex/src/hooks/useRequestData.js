@@ -8,7 +8,7 @@ export const useRequestData = (url, initialState) => {
   useEffect(() => {
     axios.get(url)
     .then((res) => setData(res.data))
-    .catch((err) => console.log(err.response))
+    .catch((err) => alert(err.response))
   }, [url]);
 
   return data;
@@ -20,7 +20,7 @@ export const useRequestDetails = (url, header, initialState) => {
   useEffect(() => {
     axios.get(url, header)
     .then((res) => setData(res.data))
-    .catch((err) => console.log(err.response))
+    .catch((err) => alert(err.response))
   }, [url]);
 
   return data;

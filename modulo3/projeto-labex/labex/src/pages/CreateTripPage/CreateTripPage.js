@@ -6,7 +6,7 @@ import { useForm } from "../../hooks/useForm";
 import axios from "axios";
 import { BASE_URL } from "../../constants/Base_url";
 import { PLANETAS } from "../../constants/Planetas";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 import { MainForm, ButtonDiv } from "./styled";
 
 const CreateTripPage = () => {

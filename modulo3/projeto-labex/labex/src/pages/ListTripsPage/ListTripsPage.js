@@ -1,12 +1,11 @@
+import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData } from "../../hooks/useRequestData";
 import { goToApplicationForm, goBack, goHome, goToLoignPage } from "../../routes/coordinator";
 import { Lista, Return, CardName } from "./styled";
-
-import * as React from "react";
 import Card from "@mui/material/Card";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 
 const ListTripsPage = () => {
   const navigate = useNavigate();

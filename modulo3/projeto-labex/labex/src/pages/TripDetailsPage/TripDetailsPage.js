@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
 import { useProtectedPage} from "../../hooks/useRequestData";
 import { logout, goBack } from "../../routes/coordinator";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 import { Lista, CanditadosDiv, ButtonCandidato, CardViagem } from "./styled";
 
 const TripDetailsPage = () => {

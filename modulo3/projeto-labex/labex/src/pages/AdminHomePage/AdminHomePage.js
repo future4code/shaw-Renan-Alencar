@@ -1,11 +1,11 @@
-// import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { goToCreatTrip, goToDetailsPage, logout } from "../../routes/coordinator";
+import { goToCreatTrip, goToDetailsPage } from "../../routes/coordinator";
 import { BASE_URL } from "../../constants/Base_url";
 import { useRequestData, useProtectedPage } from "../../hooks/useRequestData";
 import { Trips, MainCoainter } from "./styled";
 import axios from "axios";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 
 const AdminHomePage = () => {
   useProtectedPage();

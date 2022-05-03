@@ -6,10 +6,9 @@ import { useParams } from "react-router-dom";
 import { useRequestData } from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/Base_url";
 import { PAISES } from "../../constants/Paises";
-
 import { useForm } from "../../hooks/useForm";
 import axios from "axios";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 
 const ApplicationFormPage = () => {
   const navigate = useNavigate();
@@ -39,11 +38,10 @@ const ApplicationFormPage = () => {
     axios
       .post(`${BASE_URL}/trips/${params.id}/apply`, form)
       .then((res) => {
-        console.log(res.data);
         cleanFields();
       })
       .catch((err) => {
-        console.log(err.response);
+        alert(err.response);
       });
   };
 

@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
 import { goBack, goToListTrip, goHome } from "../../routes/coordinator";
-import { Header } from "../Header/Header";
+import { Header } from '../../components/Header/Header';
 import { MainForm, ButtonDiv } from "./styled";
 
 const LoginPage = () => {
