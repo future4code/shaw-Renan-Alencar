@@ -11,7 +11,6 @@
 - Adm consegue aprovar ou reprovar candidato nas viagens.
 
 ### O que não funciona
-- Ao aprovar ou reprovar um candidato a página não renderiza para mostrar a atualização. É necessário atualizar manualmente.
 - Responsividade.
 
 ### Bibliotecas utilizadas

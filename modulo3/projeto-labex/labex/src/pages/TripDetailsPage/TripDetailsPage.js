@@ -1,19 +1,13 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../constants/Base_url";
-import {
-  useRequestDetails,
-  useProtectedPage,
-} from "../../hooks/useRequestData";
-import { useNavigate } from "react-router-dom";
+import { useProtectedPage} from "../../hooks/useRequestData";
 import { logout, goBack } from "../../routes/coordinator";
 import { Header } from "../Header/Header";
 import { Lista, CanditadosDiv, ButtonCandidato, CardViagem } from "./styled";
 
 const TripDetailsPage = () => {
-  const [update, setUpdate] = React.useState(false);
-  const navigate = useNavigate();
   useProtectedPage();
   const token = localStorage.getItem("token");
   const HEADERS = {
@@ -21,17 +15,21 @@ const TripDetailsPage = () => {
       auth: token,
     },
   };
-
   const { id } = useParams();
-  const detailsTrip = useRequestDetails(`${BASE_URL}/trip/${id}`, HEADERS);
-  const [atualizar, setAtualizar] = React.useState(detailsTrip);
+  const [detailsTrip, setDetailsTrip ] = useState('')
+  const [update, setUpdate] = React.useState(false);
 
-  // const teste = () => {
-  //   setUpdate(!update)
-  //   console.log(update)
-  // }
+  useEffect(() => {
 
-  useEffect(() => {}, []);
+     axios.get(`${BASE_URL}/trip/${id}`, HEADERS)
+     .then((res) => {
+      setDetailsTrip(res.data);
+      setUpdate(!update)
+     })
+     .catch((err) => {
+       alert(err.response)
+     })
+  }, [update]);
 
   const DecideCandidate = (decisao, candidateID) => {
     const BODY = {
@@ -45,8 +43,6 @@ const TripDetailsPage = () => {
       )
       .then((res) => {
         alert("Decisão registrada com sucesso!");
-        console.log("aprovado");
-        detailsTrip();
       })
       .catch((err) => {
         alert("Houve um erro, tenta novamente");
@@ -59,8 +55,6 @@ const TripDetailsPage = () => {
         first={{ function: goBack, text: "Voltar" }}
         second={{ function: logout, text: "Sair" }}
       />
-      
-      {/* <button onClick={teste}>teste</button> */}
       <Lista>
         {detailsTrip && (
           <CardViagem>
@@ -78,18 +72,13 @@ const TripDetailsPage = () => {
               detailsTrip.trip.candidates.map((candidato) => {
                 return (
                   <li key={candidato.id}>
-                    {" "}
                     {candidato.name}
                     <div>
-                      <ButtonCandidato
-                        onClick={() => DecideCandidate(true, candidato.id)}
-                      >
+                      <ButtonCandidato onClick={() => DecideCandidate(true, candidato.id)}>
                         Aprovar
                       </ButtonCandidato>
                       
-                      <ButtonCandidato
-                        onClick={() => DecideCandidate(false, candidato.id)}
-                      >
+                      <ButtonCandidato onClick={() => DecideCandidate(false, candidato.id)}>
                         Reprovar
                       </ButtonCandidato>
                     </div>
