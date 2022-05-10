@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../../components/Header/Header'
 
 const Cadastro = () => {
   return (
-    <div>Cadastro</div>
+    <div>
+      <Header />
+      </div>
   )
 }
 
