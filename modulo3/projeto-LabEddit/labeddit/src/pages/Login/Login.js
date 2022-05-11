@@ -3,12 +3,25 @@ import fotoLogo from '../../assets/fotoLogo.JPG'
 import { MainContainer, Logo, H1, P, Form, ButtonContinuar, ButtonConta } from './styled'
 import TextField from '@mui/material/TextField';
 import { useForm } from '../../hooks/useForm';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls';
 
 const Login = () => {
+  const navigate = useNavigate();
   const {form, onChange, clean} = useForm({email: '', password: ''})
 
-  const onSubmitForm = () => {
-
+  const onSubmitForm = (event) => {
+    event.preventDefault();
+    axios.post(`${BASE_URL}/users/login`, form)
+    .then((res) => {
+      localStorage.setItem("token", res.data.token);
+      navigate('/posts');
+      clean();
+    })
+    .catch((err) => {
+      alert("E-mail ou senha incorretos!")
+    })
   }
 
   return (
@@ -19,7 +32,7 @@ const Login = () => {
 
       <Form onSubmit={onSubmitForm}>
         <TextField
-          label={"Nome"}
+          label={"E-mail"}
           name={"email"}
           value={form.email}
           onChange={onChange}
@@ -36,10 +49,10 @@ const Login = () => {
           fullWidth
           required
         />
-      </Form>
-
       <ButtonContinuar>Continuar</ButtonContinuar>
-      <ButtonConta>Criar Conta</ButtonConta>
+      </Form>
+      <ButtonConta onClick={() => navigate('/cadastro')}>Criar Conta</ButtonConta>
+
 
     </MainContainer>
   );

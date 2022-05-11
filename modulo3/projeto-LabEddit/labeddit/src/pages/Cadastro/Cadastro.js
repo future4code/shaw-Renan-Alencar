@@ -19,8 +19,8 @@ const Cadastro = () => {
     event.preventDefault();
     axios.post(`${BASE_URL}/users/signup`, form)
     .then((res) => {
-      navigate('/posts');
       localStorage.setItem("token", res.data.token);
+      navigate('/posts');
       clean();
     })
     .catch((err) => {
