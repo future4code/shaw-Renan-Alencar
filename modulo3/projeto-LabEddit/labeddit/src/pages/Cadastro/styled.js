@@ -15,6 +15,9 @@ export const H1 = styled.h1`
   width: 22.75rem;
   line-height: 2.938rem;
   margin: 1.375rem 2.063rem 0 2.063rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 700, bold;
+
 `
 
 export const Form = styled.form`
@@ -25,7 +28,7 @@ export const P = styled.p`
   font-family: 'Noto Sans', sans-serif;
   font-weight: 500, medium;
   font-size: 0.813rem;
-  margin: 4.063rem 2.125rem 0 2.125rem;
+  margin-top: 4.063rem;
 `
 
 export const DivTermo = styled.div`
@@ -33,12 +36,14 @@ export const DivTermo = styled.div`
   align-items: center;
 `
 
-export const Input = styled.input`
-  margin: 0 0.625rem 0 1.875rem;
+export const Checkbox = styled.input`
+  margin-right: 0.625rem;
 `
 
 export const PTermo = styled.p`
-  margin-right: 1.25rem;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 400, regular;
+  margin: 0;
 `
 
 export const ButtonCadastrar = styled.button`
@@ -50,4 +55,6 @@ export const ButtonCadastrar = styled.button`
   font-size: 1.125rem;
   font-weight: bolder;
   color: white;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700, bold;
 `;

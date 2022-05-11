@@ -25,6 +25,7 @@ const Login = () => {
           onChange={onChange}
           margin={"dense"}
           fullWidth
+          required
         />
         <TextField
           label={"Senha"}
@@ -33,6 +34,7 @@ const Login = () => {
           onChange={onChange}
           margin={"dense"}
           fullWidth
+          required
         />
       </Form>
 
