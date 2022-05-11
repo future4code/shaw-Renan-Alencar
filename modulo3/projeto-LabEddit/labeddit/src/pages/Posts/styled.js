@@ -1,0 +1,27 @@
+import styled from "styled-components";
+
+export const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 30px;
+`
+
+export const Post = styled.input`
+  width: 330px;
+  height: 131px;
+  background-color: #EDEDED;
+  border-radius: 12px;
+  margin-top: 30px;
+`
+
+export const Button = styled.button`
+  background: linear-gradient(90deg, #ff6489 0%, #f9b24e 100%);
+  border-radius: 27px;
+  width: 20.313rem;
+  height: 3.188rem;
+  margin: 1.125rem 0 3.125rem 0;
+  font-size: 1.125rem;
+  font-weight: bolder;
+  color: white;
+`
