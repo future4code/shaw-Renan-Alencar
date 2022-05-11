@@ -5,7 +5,6 @@ export const MainContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin: 0px; */
   margin-top: 89px;
 ` 
 export const Logo = styled.img`
@@ -46,7 +45,7 @@ export const ButtonConta = styled.button`
   border-radius: 27px;
   width: 325px;
   height: 51px;
-  margin-top: 50px;
+  margin-top: 40px;
   font-size: 18px;
   font-weight: bolder;
   color: #FE7E02;
