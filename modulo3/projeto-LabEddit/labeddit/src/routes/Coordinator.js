@@ -14,6 +14,6 @@ export const posts = (navigate) => {
   navigate('/posts');
 };
 
-export const detalhesPost = (navigate, id) => {
-  navigate(`/posts/${id}`);
+export const detalhesPost = (navigate) => {
+  navigate("/detalhes");
 };

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cadastro from "../pages/Cadastro/Cadastro";
 import DetalhesPost from "../pages/DetalhesPost/DetalhesPost";
 import Login from "../pages/Login/Login";
-import Posts from "../pages/Posts/Posts";
+import Home from "../pages/Home/Home";
 
 const Router = () => {
   return (
@@ -11,8 +11,8 @@ const Router = () => {
       <Routes>
         <Route index element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/posts/:id" element={<DetalhesPost />} />
+        <Route path="/posts" element={<Home />} />
+        <Route path="/detalhes" element={<DetalhesPost />} />
       </Routes>
     </BrowserRouter>
   );

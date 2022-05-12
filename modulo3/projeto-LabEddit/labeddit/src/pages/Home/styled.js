@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
   margin: 0 1.875rem;
 `
 
-export const Post = styled.input`
+export const InputPost = styled.input`
   width: 20.625rem;
   height: 8.188rem;
   background-color: #EDEDED;
