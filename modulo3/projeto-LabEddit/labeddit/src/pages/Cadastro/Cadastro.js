@@ -20,8 +20,8 @@ const Cadastro = () => {
     axios.post(`${BASE_URL}/users/signup`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      navigate('/posts');
       clean();
+      navigate('/posts');
     })
     .catch((err) => {
       alert("Houve um erro, tente novamente!")

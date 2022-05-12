@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import fotoLogo from '../../assets/fotoLogo.JPG'
 import { MainContainer, Logo, H1, P, Form, ButtonContinuar, ButtonConta } from './styled'
 import TextField from '@mui/material/TextField';
@@ -16,8 +16,8 @@ const Login = () => {
     axios.post(`${BASE_URL}/users/login`, form)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      navigate('/posts');
       clean();
+      navigate('/posts');
     })
     .catch((err) => {
       alert("E-mail ou senha incorretos!")

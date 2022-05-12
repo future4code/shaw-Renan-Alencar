@@ -7,12 +7,20 @@ export const MainContainer = styled.div`
   margin: 0 1.875rem;
 `
 
+export const InputTitulo = styled.input`
+  width: 20.625rem;
+  height: 2rem;
+  background-color: #EDEDED;
+  border-radius: 12px;
+  margin-top: 1.875rem;
+`
+
 export const InputPost = styled.input`
   width: 20.625rem;
   height: 8.188rem;
   background-color: #EDEDED;
   border-radius: 12px;
-  margin-top: 1.875rem;
+  margin-top: 0.5rem;
 `
 
 export const Button = styled.button`
