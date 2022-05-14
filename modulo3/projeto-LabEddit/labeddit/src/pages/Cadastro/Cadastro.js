@@ -6,6 +6,7 @@ import { useForm } from "../../hooks/useForm";
 import axios from 'axios'
 import {BASE_URL} from '../../constants/urls'
 import { useNavigate } from "react-router-dom";
+import { login } from '../../routes/Coordinator'
 
 const Cadastro = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Cadastro = () => {
 
   return (
     <MainCotainer>
-      <Header />
+      <Header botao={{ function: login, text:"Entrar"}}/>
       <H1>Olá, boas vindas ao LabEddit!</H1>
 
       <Form onSubmit={onSubmitForm}>

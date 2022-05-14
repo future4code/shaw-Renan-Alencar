@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from "../../components/Header/Header";
 import Post from '../../components/Post/Post';
 import {MainContainer, InputTitulo, InputPost, Button} from './styled'
@@ -7,33 +7,26 @@ import { useForm } from '../../hooks/useForm';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls';
 import { HEADER } from '../../constants/authotization';
-import { useNavigate } from 'react-router-dom';
+import { logout } from '../../routes/Coordinator'
 
 const Posts = () => {
   useProtectedPage();
-  const navigate = useNavigate();
-  const {form, onChange, clean} = useForm({title: '', body: ''})
+  const {form, onChange, clean} = useForm({title: '', body: ''});
 
   const onSubmitPost = () => {
     axios.post(`${BASE_URL}/posts`, form ,HEADER)
     .then((res) => {
-      console.log("ok")
+      alert("Post criado com sucesso!")
       clean()
-      // página não esta atualizando os posts novos
-
     })
     .catch((err) => {
-      alert("Houve um erro, tenta novamente")
+      console.log("Houve um erro, tenta novamente")
     })
   }
 
-  useEffect(() => {
-    
-  },[form])
-
   return (
     <div>
-      <Header />
+      <Header botao={{ function: logout, text:"Sair"}}/>
       <MainContainer>
         <InputTitulo
           placeholder={"Titulo"}

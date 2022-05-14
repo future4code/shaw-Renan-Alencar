@@ -6,16 +6,17 @@ export const MainContainer = styled.div`
   justify-content: space-between;
 `
 export const Card = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: 0.625rem 0;
-    background-color: #E0E0E0;
-    height: 10.438rem;
-    justify-content: space-between;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 0.625rem;
-`
+  display: flex;
+  flex-direction: column;
+  margin: 0.625rem 0;
+  background-color: #e0e0e0;
+  width: 19.625rem;
+  min-height: 10.438rem;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.625rem;
+`;
 export const Usuario = styled.p`
   font-family: 'IBM Plex Sans';
   font-weight: 400;

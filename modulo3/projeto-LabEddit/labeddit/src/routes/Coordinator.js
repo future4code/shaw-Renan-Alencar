@@ -14,6 +14,11 @@ export const posts = (navigate) => {
   navigate('/posts');
 };
 
-export const detalhesPost = (navigate) => {
-  navigate("/detalhes");
+export const detalhesPost = (navigate, id) => {
+  navigate(`/detalhes/${id}`);
+};
+
+export const logout = (navigate) => {
+  localStorage.removeItem("token");
+  navigate('/');
 };
