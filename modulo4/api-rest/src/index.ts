@@ -30,9 +30,9 @@ app.get("/allUsers", (req, res) => {
 // Exercicio 2
 //A. passei por query, achei mais facil desse jeito
 //B. Sim, fiz essa verificação
-app.get("/allUsers/type" , (req, res) => {
+app.get("/type/:type" , (req, res) => {
   try {
-    const { type } = req.body
+    const type:string = req.params.type;
     if(!type) {
       res.status(404)
       throw new Error("Type não informado")
@@ -49,9 +49,9 @@ app.get("/allUsers/type" , (req, res) => {
 })
 
 //Exercicio 3
-app.get("/allUsers/user", (req, res) => {
+app.get("/allUsers/:user", (req, res) => {
   try {
-    const { name } = req.body
+    const name:string = req.params.user;
     const user = users.find((user) => user.name === name);
     if (!user) {
       res.status(404)
