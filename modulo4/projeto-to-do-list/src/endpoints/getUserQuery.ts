@@ -12,6 +12,7 @@ export default async function getUserQuery(req: Request,res: Response){
 
     const result = await connection("TodoListUser")
       .select("id", "nickname")
+      //procura onde o nickname OU email corresponde a query
       .where({ "TodoListUser.nickname": query })
       .orWhere({ "TodoListUser.email": query });
 
