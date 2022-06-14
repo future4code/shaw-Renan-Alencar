@@ -30,6 +30,21 @@ const sendNotification = async (ids: string[]): Promise<void> => {
       console.log(`Erro ao enviar para ${id}`);
     }
   }
+
+  //Modo alternativo e mais eficiente
+  // for (const id of ids) {
+  //   axios
+  //     .post(`${baseURL}/notifications`, {
+  //       subscriberId: id,
+  //       message: message,
+  //     })
+  //     .then(() => {
+  //       console.log(`Notificação enviada a ${id}`);
+  //     })
+  //     .catch(() => {
+  //       console.log(`Erro ao enviar para ${id}`);
+  //     });
+  // }
 };
 
 getsubscribers()
