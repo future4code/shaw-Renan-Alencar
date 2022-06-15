@@ -4,3 +4,12 @@ export type Address = {
   cidade: string,
   estado: string
 }
+
+export type AddressFull = {
+  cep: string,
+  logradouro: string,
+  bairro: string,
+  numero: number,
+  cidade: string,
+  estado: string
+}
