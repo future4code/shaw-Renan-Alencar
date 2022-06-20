@@ -1,0 +1,9 @@
+GET http://localhost:3003/getAddress/02310030
+
+###
+POST http://localhost:3003/insertAddress/02410090
+# Content-Type: application/json
+
+{
+  "numero": "100",
+}
