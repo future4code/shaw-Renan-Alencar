@@ -29,3 +29,8 @@ propriedades (name, residentsQuantity, consumedEnergy, cpf, cep, registrationNum
 ## Exercicio 5
 A. implements client, name, registrationNumber, consumedEnergy, cep, calculateBill()
 B. CommercialClient, extends Commerce, floorsQuantity, cnpj
+
+## Exercicio 6
+A. filha Industry, por que ela pega informações da Industry
+B. Client, por que é implementado na interface quais requitos são obrigatorios ela possuir
+C. 
