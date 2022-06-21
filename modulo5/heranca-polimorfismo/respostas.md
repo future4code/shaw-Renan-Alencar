@@ -20,7 +20,7 @@ A. Imprimiu todas
 ## Exercicio 2
 A. Não é possível criar uma instância de uma classe abstrata.ts(2511)
 
-B. Retirar o abstract
+B. Criar uma classe filha e criar uma instância dessa classe
 
 ## Exercicio 3
 A. 

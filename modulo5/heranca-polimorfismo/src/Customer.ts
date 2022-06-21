@@ -10,7 +10,6 @@ export default class Customer extends User {
     name: string,
     password: string,
     creditCard: string,
-    // introduceYourself:string
   ) {
     super(id, email, name, password);
     console.log("Chamando o construtor da classe Customer");
