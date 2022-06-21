@@ -25,3 +25,7 @@ B. Criar uma classe filha e criar uma instância dessa classe
 ## Exercicio 4
 A. Métodos getCPF e calculateBill
 propriedades (name, residentsQuantity, consumedEnergy, cpf, cep, registrationNumber)
+
+## Exercicio 5
+A. implements client, name, registrationNumber, consumedEnergy, cep, calculateBill()
+B. CommercialClient, extends Commerce, floorsQuantity, cnpj
