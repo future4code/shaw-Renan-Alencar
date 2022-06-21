@@ -13,3 +13,14 @@ A. Sim
 
 
 ### Polimorfismo
+
+## Exercicio 1
+A. Imprimiu todas
+
+## Exercicio 2
+A. Não é possível criar uma instância de uma classe abstrata.ts(2511)
+
+B. Retirar o abstract
+
+## Exercicio 3
+A. 

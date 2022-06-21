@@ -1,4 +1,5 @@
 import Customer from "./Customer";
+import Place from "./Place";
 import User from "./User";
 
 
@@ -10,3 +11,4 @@ const customer1 = new Customer("2", "marcos@gmail.com", "Marcos", "123456", "999
 
 console.log(customer1.interoduceYourself())
 
+// const place1 = new Place("22222")
