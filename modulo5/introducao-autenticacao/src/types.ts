@@ -15,3 +15,7 @@ export class User {
     return this.password;
   }
 }
+
+export interface AuthenticatorData {
+   id:string
+}
