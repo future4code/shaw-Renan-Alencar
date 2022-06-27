@@ -4,8 +4,13 @@ import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
   public createUser = async (newUser: User) => {
+    await this.getConnection()("User").insert(newUser);
+  };
+
+  public getUserEmail = async (email: string): Promise<any> => {
     await this.getConnection()("User")
-    .insert(newUser);
+    .select("*")
+    .where({ email });
   };
 }
 
