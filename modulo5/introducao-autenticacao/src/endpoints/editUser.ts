@@ -1,30 +1,30 @@
-import { Request, Response } from "express";
-import { UserDatabase } from "../data/UserDatabase";
+// import { Request, Response } from "express";
+// import { UserDatabase } from "../data/UserDatabase";
 
-export default async function createUser(
-   req: Request,
-   res: Response
-): Promise<void> {
-   try {
+// export default async function createUser(
+//    req: Request,
+//    res: Response
+// ): Promise<void> {
+//    try {
 
-      const { name, nickname } = req.body
+//       const { name, nickname } = req.body
 
-      if (!name && !nickname) {
-         res.statusCode = 422
-         res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'"
-         throw new Error()
-      }
+//       if (!name && !nickname) {
+//          res.statusCode = 422
+//          res.statusMessage = "Informe o(s) novo(s) 'name' ou 'nickname'"
+//          throw new Error()
+//       }
 
-      new UserDatabase().edit(req.params.id, {name, nickname})
+//       new UserDatabase().edit(req.params.id, {name, nickname})
 
-      res.end()
+//       res.end()
 
-   } catch (error) {
+//    } catch (error) {
 
-      if (res.statusCode === 200) {
-         res.status(500).end()
-      }
+//       if (res.statusCode === 200) {
+//          res.status(500).end()
+//       }
 
-      res.end()
-   }
-}
+//       res.end()
+//    }
+// }

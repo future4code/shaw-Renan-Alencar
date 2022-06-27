@@ -1,41 +1,46 @@
 import { Request, Response } from "express";
 import { UserDatabase } from "../data/UserDatabase";
-import { user } from "../types";
+import { Authenticator } from "../services/Authenticator";
+import { Generate } from "../services/Generate";
+import { User } from "../types";
 
-export default async function createUser(
-   req: Request,
-   res: Response
-): Promise<void> {
+export default async function createUser(req: Request, res: Response): Promise<void> {
    try {
+     const { email, password } = req.body;
 
-      const { name, nickname, email, password } = req.body
-      const userDB = new UserDatabase()
+     if (!email || email.indexOf("@") === -1) {
+       res.statusCode = 422;
+       throw new Error("Preencha o campo 'email'");
+     }
 
-      if (!name || !nickname || !email || !password) {
-         res.statusCode = 422
-         throw new Error("Preencha os campos 'name','nickname', 'password' e 'email'")
-      }
+     if (!password || password.length < 6) {
+       res.statusCode = 422;
+       throw new Error("Senha deve ter mais que 6 caracteres ");
+     }
 
-      const user = await userDB.getByEmail(email)
-      console.log(user)
-      if (user) {
-         res.statusCode = 409
-         throw new Error('Email já cadastrado')
-      }
+     //Criando instancia de Authenticator
+     //chamando função de  gerar id
+     const generate = new Generate();
+     const id: string = generate.generateId();
 
-      const id: string = Date.now().toString()
+     const userDB = new UserDatabase();
 
-      const newUser: user = { id, name, nickname, email, password }
+     const newUser: User = { id, email, password };
 
-     await userDB.create(newUser)
+     await userDB.createUser(newUser);
 
-      res.status(201).send({ newUser })
+     //Criando instancia de Authenticator
+     const authenticator = new Authenticator();
 
+     //chamando função de  gerar Token
+     const token = authenticator.generateToken({ id });
+
+     res.status(201).send(token);
    } catch (error: any) {
-      if (res.statusCode === 200) {
-         res.status(500).send({ message: "Internal server error" })
-      } else {
-         res.send({ message: error.message })
-      }
+     if (res.statusCode === 200) {
+       res.status(500).send({ message: "Internal server error" });
+     } else {
+       res.send({ message: error.message });
+     }
    }
 }
