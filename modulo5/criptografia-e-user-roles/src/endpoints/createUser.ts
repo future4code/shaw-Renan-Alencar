@@ -2,12 +2,12 @@ import { Request, Response } from "express";
 import { UserDatabase } from "../data/UserDatabase";
 import { Authenticator } from "../services/Authenticator";
 import { Generate } from "../services/Generate";
-import { User } from "../class";
+import { User, UserRole } from "../class";
 import { GenerateHash } from "../services/GenerateHash";
 
 export default async function createUser(req: Request, res: Response): Promise<void> {
    try {
-     const { email, password } = req.body;
+     const { email, password, role } = req.body;
 
      if (!email || email.indexOf("@") === -1) {
        res.statusCode = 422;
@@ -28,15 +28,15 @@ export default async function createUser(req: Request, res: Response): Promise<v
 
      const userDB = new UserDatabase();
 
-     const newUser: User = { id, email, password: hash };
+     const newUser: User = { id, email, password: hash, role};
 
      await userDB.createUser(newUser);
 
      const authenticator = new Authenticator();
-     const token = authenticator.generateToken({ id });
+     const token = authenticator.generateToken({ id, role });
 
      res.status(201).send({ token: token });
-     
+
    } catch (error: any) {
      if (res.statusCode === 200) {
        res.status(500).send({ message: "Internal server error" });

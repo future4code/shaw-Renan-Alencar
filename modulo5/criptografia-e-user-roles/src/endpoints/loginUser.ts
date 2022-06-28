@@ -31,7 +31,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     const authenticator = new Authenticator();
 
-    const token = authenticator.generateToken({ id: user.id });
+    const token = authenticator.generateToken({ id: user.id, role: user.role });
 
     res.status(201).send({ token: token });
 
