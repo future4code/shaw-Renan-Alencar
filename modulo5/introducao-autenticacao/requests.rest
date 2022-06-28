@@ -20,12 +20,8 @@ Content-Type: application/json
 }
 
 ###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjk5MjYxLWZkNjEtNGJmZC1iOGFhLTkzNWI2MTY3MGU5ZSIsImlhdCI6MTY1NjM4MTQyMywiZXhwIjoxNjU2MzgyNjIzfQ.7nghhxzakPRzXnY_Zl8DouQH46afVN8aktuwM3-5ML4
 
-@id = {{signup.response.body.newUser.id}}
+GET http://localhost:3003/user/profile
+Authorization: {{token}}
 
-PUT http://localhost:3003/user/edit/{{id}}
-Content-Type: application/json
-
-{
-   "name": "Harry Osbourne" 
-}
