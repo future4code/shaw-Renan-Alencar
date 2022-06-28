@@ -7,10 +7,12 @@ export class UserDatabase extends BaseDatabase {
     await this.getConnection()("User").insert(newUser);
   };
 
-  public getUserEmail = async (email: string): Promise<any> => {
-    await this.getConnection()("User")
+  public getByEmail = async (email: string): Promise<any> => {
+    
+    const result = await this.getConnection()("User")
     .select("*")
     .where({ email });
+    return result[0]
   };
 }
 
