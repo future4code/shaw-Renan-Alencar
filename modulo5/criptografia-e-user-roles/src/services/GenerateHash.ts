@@ -9,7 +9,7 @@ export class GenerateHash {
   };
 
   public compare = async (password: string, hash: string) => {
-    const result = await bcrypt.compare(password, hash);
-    result;
+    const result = await bcrypt.compare(password, hash)
+    return result;
   };
 }
