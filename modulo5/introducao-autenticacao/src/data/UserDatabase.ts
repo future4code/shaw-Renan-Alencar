@@ -1,5 +1,6 @@
 import { User } from "../types";
 import { BaseDatabase } from "./BaseDatabase";
+import { AuthenticatorData } from "../types";
 
 
 export class UserDatabase extends BaseDatabase {
@@ -7,13 +8,15 @@ export class UserDatabase extends BaseDatabase {
     await this.getConnection()("User").insert(newUser);
   };
 
+
   public getByEmail = async (email: string): Promise<any> => {
-    
-    const result = await this.getConnection()("User")
+    const [result] = await this.getConnection()("User")
     .select("*")
     .where({ email });
-    return result[0]
+    return result
   };
+
+  
 }
 
 // export class UserDatabase extends BaseDatabase {

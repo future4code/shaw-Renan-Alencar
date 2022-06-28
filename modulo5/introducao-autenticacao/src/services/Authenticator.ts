@@ -11,4 +11,10 @@ export class Authenticator {
     });
     return token;
   }
+
+  public getData = (token: string): AuthenticatorData => {
+    const data = jwt.verify(token,  
+      process.env.JWT_KEY as string) as AuthenticatorData
+    return data
+  }
 }

@@ -13,3 +13,7 @@ CREATE TABLE User (
 
 ## Exercicio 3
 A. Ela garante que a resposta que será recebida vai ser uma string. 
+
+## Exercicio 7
+A. Ela informa que a rsposta pode ser em qualquer formato. Por que não sabemos em qual formato a resposta virá.
+
