@@ -5,8 +5,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-   "name": "Renan" ,
-   "email": "renan@gmail.com" ,
+   "name": "joao" ,
+   "email": "joao@gmail.com" ,
    "password": "123456"
 }
 
@@ -16,6 +16,13 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-   "email": "renan@gmail.com" ,
+   "email": "joao@gmail.com" ,
    "password": "123456"
 }
+
+###
+# @token = {{login.response.body.token}}
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjUzMTgyMSwiZXhwIjoxNjU2NTMzMDIxfQ.mhEN31hrqiSBg7p3LuDDh4F96OHvGTf_rodRsZSIJ58
+GET http://localhost:3003/user/profile
+Authorization: {{token}}
+###
