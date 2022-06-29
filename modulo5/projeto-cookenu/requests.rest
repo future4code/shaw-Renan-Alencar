@@ -22,7 +22,13 @@ Content-Type: application/json
 
 ###
 # @token = {{login.response.body.token}}
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjUzMTgyMSwiZXhwIjoxNjU2NTMzMDIxfQ.mhEN31hrqiSBg7p3LuDDh4F96OHvGTf_rodRsZSIJ58
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjUzNTA3NSwiZXhwIjoxNjU2NTM2Mjc1fQ.NGu8X-1Fs6RCKnl6U1Y4NCYQw-tJvEot3qF44k9HOR
 GET http://localhost:3003/user/profile
+Authorization: {{token}}
+###
+
+@id = aa477ba9-4ef8-40a5-ad04-275b27f23d08
+
+GET http://localhost:3003/user/{{id}}
 Authorization: {{token}}
 ###
