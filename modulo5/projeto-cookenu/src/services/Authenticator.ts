@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken"
-import { AuthenticatorData } from "../class";
+import { AuthenticatorData } from "../model/User";
 
 export class Authenticator {
   private static Expires_In = "20min";
@@ -12,7 +12,7 @@ export class Authenticator {
     return token;
   }
 
-  public getData = (token: string): AuthenticatorData => {
+  public getTokenData = (token: string): AuthenticatorData => {
     const data = jwt.verify(token,  
       process.env.JWT_KEY as string) as AuthenticatorData
     return data

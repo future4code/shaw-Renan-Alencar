@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { User } from "../class";
+import { User } from "../model/User";
 import { UserDatabase } from "../data/UserDatabase";
 import { Authenticator } from "../services/Authenticator";
-import { Generate } from "../services/Generate";
+import { IdGenerate } from "../services/IdGenerate";
 import { GenerateHash } from "../services/HashManager";
 
 export const createUser = async (req: Request,res: Response): Promise<void> => {
@@ -10,7 +10,7 @@ export const createUser = async (req: Request,res: Response): Promise<void> => {
     const { name, email, password } = req.body;
 
     if (!name || !email) {
-      res.statusCode = 400;
+      res.statusCode = 422;
       throw new Error("Nome ou e-mail inválido, favor verificar");
     }
 
@@ -19,7 +19,7 @@ export const createUser = async (req: Request,res: Response): Promise<void> => {
       throw new Error("Senha deve ter 6 ou mais caracteres ");
     }
 
-    const generate = new Generate();
+    const generate = new IdGenerate();
     const id: string = generate.generateId();
 
     const generateHash = new GenerateHash();

@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-export class Generate{
+export class IdGenerate{
   public generateId(): string{
     return v4()
   }
