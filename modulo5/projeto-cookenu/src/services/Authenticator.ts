@@ -2,7 +2,7 @@ import * as jwt from "jsonwebtoken"
 import { AuthenticatorData } from "../model/User";
 
 export class Authenticator {
-  private static Expires_In = "20min";
+  private static Expires_In = "5day";
 
   public generateToken(input: AuthenticatorData): string {
     const token = jwt.sign(input, 

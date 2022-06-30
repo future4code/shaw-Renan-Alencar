@@ -1,5 +1,4 @@
 ###
-# @name signup
 
 POST http://localhost:3003/signup
 Content-Type: application/json
@@ -22,7 +21,7 @@ Content-Type: application/json
 
 ###
 # @token = {{login.response.body.token}}
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjUzNTA3NSwiZXhwIjoxNjU2NTM2Mjc1fQ.NGu8X-1Fs6RCKnl6U1Y4NCYQw-tJvEot3qF44k9HOR
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjU0MDA2NSwiZXhwIjoxNjU2OTcyMDY1fQ.9qLF74QSmxMmw0wVmgzgNwhVqGz7GdL7SIVszsexV5E
 GET http://localhost:3003/user/profile
 Authorization: {{token}}
 ###
@@ -32,3 +31,14 @@ Authorization: {{token}}
 GET http://localhost:3003/user/{{id}}
 Authorization: {{token}}
 ###
+
+###
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "title": "Torta" ,
+   "description": "colocar frango e deixar no fogão"
+}

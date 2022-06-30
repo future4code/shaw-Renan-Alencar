@@ -6,8 +6,6 @@ export const getAnotherProfile = async (req: Request, res: Response) => {
   try {
     const token = req.headers.authorization as string;
 
-    const idRecebido = req.params.id;
-
     const authenticator = new Authenticator();
     const data = authenticator.getTokenData(token);
 
@@ -17,7 +15,7 @@ export const getAnotherProfile = async (req: Request, res: Response) => {
     }
 
     const userDB = new UserDatabase();
-    const user = await userDB.getById(idRecebido);
+    const user = await userDB.getById(req.params.id);
 
     res.status(201).send({
       id: user.id,
