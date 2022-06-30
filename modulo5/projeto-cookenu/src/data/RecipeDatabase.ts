@@ -6,4 +6,11 @@ export class RecipeDatabase extends BaseDatabase{
     await this.getConnection()("recipe")
     .insert(newRecipe)
   }
+
+  public getById = async ( id: string) => {
+    const [result] = await this.getConnection()("recipe")
+      .select("*")
+      .where({ id });
+    return result;
+  };
 }

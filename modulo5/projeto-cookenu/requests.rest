@@ -39,6 +39,13 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-   "title": "Torta" ,
-   "description": "colocar frango e deixar no fogão"
+   "title": "Sopa" ,
+   "description": "Verduras e agua quente"
 }
+
+###
+@id = 0b9b5717-5a2e-434b-aee2-68184dd02422
+
+GET http://localhost:3003/recipe/{{id}}
+Authorization: {{token}}
+###

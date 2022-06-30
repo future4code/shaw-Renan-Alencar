@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import moment from "moment";
 import { RecipeDatabase } from "../data/RecipeDatabase";
 import { Recipe } from "../model/Recipe";
 import { Authenticator } from "../services/Authenticator";
@@ -8,11 +9,7 @@ export const createRecipe = async (req: Request, res: Response): Promise<void> =
   try {
     const token = req.headers.authorization as string;
 
-    const date = new Date();
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = date.getFullYear();
-    const date_post = `${year}-${month}-${day}`;
+    const date = moment().format("YYYY-MM-DD")
 
     const {title, description} = req.body
 
@@ -33,17 +30,17 @@ export const createRecipe = async (req: Request, res: Response): Promise<void> =
       id,
       title,
       description,
-      cratedAt: date_post
+      cratedAt: date
     };
     await recipeDB.createRecipe(newRecipe)
 
-    res.status(201).send(newRecipe)
+    res.status(201).send("Receita criada com sucesso")
    
   } catch (error:any) {
-    // if (res.statusCode === 200) {
-    //   res.status(500).send({ message: "Internal server error" });
-    // } else {
+    if (res.statusCode === 200) {
+      res.status(500).send({ message: "Internal server error" });
+    } else {
       res.send({ message: error.message });
-    // }
+    }
   }
 }

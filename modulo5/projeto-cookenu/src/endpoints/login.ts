@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import moment from "moment";
 import { UserDatabase } from "../data/UserDatabase";
 import { Authenticator } from "../services/Authenticator";
 import { GenerateHash } from "../services/HashManager";
@@ -22,7 +23,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     const generateHash = new GenerateHash();
     const passwordIsCorrect: boolean = 
     await generateHash.compare(password,user.password);
-    console.log(passwordIsCorrect)
 
     if (!passwordIsCorrect) {
       res.statusCode = 401;
