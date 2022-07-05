@@ -1,0 +1,51 @@
+###
+
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+   "name": "joao" ,
+   "email": "joao@gmail.com" ,
+   "password": "123456"
+}
+
+###
+# @name login
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+   "email": "joao@gmail.com" ,
+   "password": "123456"
+}
+
+###
+# @token = {{login.response.body.token}}
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZhNzZhNmYwLTk1ZGYtNGZkMy1iODVlLWIyMTFiNTc1ZTI4MyIsImlhdCI6MTY1NjU0MDA2NSwiZXhwIjoxNjU2OTcyMDY1fQ.9qLF74QSmxMmw0wVmgzgNwhVqGz7GdL7SIVszsexV5E
+GET http://localhost:3003/user/profile
+Authorization: {{token}}
+###
+
+@id = aa477ba9-4ef8-40a5-ad04-275b27f23d08
+
+GET http://localhost:3003/user/{{id}}
+Authorization: {{token}}
+###
+
+###
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "title": "Sopa" ,
+   "description": "Verduras e agua quente"
+}
+
+###
+@id = 0b9b5717-5a2e-434b-aee2-68184dd02422
+
+GET http://localhost:3003/recipe/{{id}}
+Authorization: {{token}}
+###
