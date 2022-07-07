@@ -1,7 +1,8 @@
 // import { compare } from "bcryptjs";
 import { insertUser } from "../data/insertUser";
+import { selectAllUsers } from "../data/selectAllUsers";
 import { selectUserByEmail } from "../data/selectUserByEmail";
-import { generateToken } from "../services/authenticator";
+import { generateToken, getTokenData } from "../services/authenticator";
 import { hash, compare } from "../services/hashManager";
 import { generateId } from "../services/idGenerator";
 import { login, userInput } from "../types/user";
@@ -59,5 +60,21 @@ export class UserBussines {
     });
 
     return token
+  }
+
+  async getAllUsers(token: string){
+    if(!token){
+      throw new Error("Token inexistente")
+    }
+    
+    const authenticator = getTokenData(token)
+
+    if(!authenticator){
+      throw new Error("Token inválido")
+    }
+
+    const allUsers = selectAllUsers()
+
+    return allUsers
   }
 }

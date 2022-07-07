@@ -44,4 +44,19 @@ export class UserController {
       
     }
   }
+
+  async getAllUsers(req: Request, res: Response){
+    try {
+      const token = req.headers.authorization!;
+
+      const userBussines = new UserBussines()
+      const users = await userBussines.getAllUsers(token)
+
+      res.status(201).send(users)
+
+    } catch (error:any) {
+      res.status(500).send({ message: error.message })
+      
+    }
+  }
 }
