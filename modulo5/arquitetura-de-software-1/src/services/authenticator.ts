@@ -1,28 +1,17 @@
-import * as jwt from "jsonwebtoken"
+import * as jwt from "jsonwebtoken";
 // import { USER_ROLES } from "../data/insertUser"
+import dotenv from 'dotenv'
+import { authenticationData } from "../types/user";
 
-export type AuthenticationData = {
-   id: string,
-   // role: USER_ROLES
+dotenv.config()
+
+export function generateToken(input: authenticationData): string {
+  return jwt.sign(input, 
+   process.env.JWT_KEY as string, {
+    expiresIn: "1day",
+  });
 }
 
-export function generateToken(
-   payload: AuthenticationData
-): string {
-   return jwt.sign(
-      payload,
-      process.env.JWT_KEY as string,
-      {
-         expiresIn: "1day"
-      }
-   )
-}
-
-export function getTokenData(
-   token: string
-): AuthenticationData {
-   return jwt.verify(
-      token,
-      process.env.JWT_KEY as string
-   ) as AuthenticationData
+export function getTokenData(token: string): authenticationData {
+  return jwt.verify(token, process.env.JWT_KEY as string) as authenticationData;
 }

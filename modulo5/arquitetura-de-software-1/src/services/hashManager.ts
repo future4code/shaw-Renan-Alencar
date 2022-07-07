@@ -1,4 +1,7 @@
 import * as bcrypt from 'bcryptjs';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const hash = async (password: string): Promise<string> => {
   const rounds = Number(process.env.BCRYPT_COST);

@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "tsc && node --inspect ./build/index.js",
-        "dev": "ts-node-dev ./src/index.ts",
+        "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/controller/index.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
