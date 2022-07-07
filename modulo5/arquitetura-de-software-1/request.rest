@@ -8,3 +8,12 @@ Content-Type: application/json
     "role":"ADMIN"
 }
 
+
+###
+POST http://localhost:3003/login 
+Content-Type: application/json
+
+{
+    "email": "renan@gmail.com", 
+    "password": "123456"
+}

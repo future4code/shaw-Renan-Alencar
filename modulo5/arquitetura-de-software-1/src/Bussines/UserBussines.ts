@@ -1,6 +1,8 @@
+// import { compare } from "bcryptjs";
 import { insertUser } from "../data/insertUser";
+import { selectUserByEmail } from "../data/selectUserByEmail";
 import { generateToken } from "../services/authenticator";
-import { hash } from "../services/hashManager";
+import { hash, compare } from "../services/hashManager";
 import { generateId } from "../services/idGenerator";
 import { login, userInput } from "../types/user";
 
@@ -41,8 +43,21 @@ export class UserBussines {
     const {email, password} = user;
 
     if(!email || !password) {
-
+      throw new Error("Login ou senha errados");
     }
 
+    const userData = await selectUserByEmail(email);
+    
+    const passwordIsCorrect:boolean = await compare(password, userData.password);
+    if (!passwordIsCorrect) {
+      throw new Error("Email ou senha incorreta");
+    }
+
+    const token: string = generateToken({
+      id: userData.id,
+      role: userData.role
+    });
+
+    return token
   }
 }

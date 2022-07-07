@@ -38,8 +38,7 @@ export class UserController {
 
       const token = await userBussines.login(login)
 
-
-      
+      res.status(201).send({token })
     } catch (error:any) {
       res.status(500).send({ message: error.message })
       

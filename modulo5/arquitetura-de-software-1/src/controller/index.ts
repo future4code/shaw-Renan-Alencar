@@ -5,3 +5,4 @@ const userController = new UserController()
 
 
 app.post("/user/signup", userController.signUp)
+app.post("/login", userController.login)
