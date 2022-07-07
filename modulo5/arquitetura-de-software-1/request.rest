@@ -25,3 +25,9 @@ GET http://localhost:3003/all
 Authorization: {{token}}
 
 ###
+
+@token = {{login.response.body.token}}
+DELETE http://localhost:3003/c62edc78-b0c2-4174-a988-dfb5d5e99754 
+Authorization: {{token}}
+
+###

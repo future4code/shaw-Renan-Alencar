@@ -9,3 +9,6 @@ app.post("/login", userController.login)
 
 app.get("/all", userController.getAllUsers)
 
+app.delete("/:id", userController.deleteUser)
+
+

@@ -1,4 +1,5 @@
 // import { compare } from "bcryptjs";
+import { deleteUser } from "../data/deleteUser";
 import { insertUser } from "../data/insertUser";
 import { selectAllUsers } from "../data/selectAllUsers";
 import { selectUserByEmail } from "../data/selectUserByEmail";
@@ -76,5 +77,25 @@ export class UserBussines {
     const allUsers = selectAllUsers()
 
     return allUsers
+  }
+
+  async deleteUser(token: string, id: string){
+    if(!token || !id){
+      throw new Error("Token ou ID inexistente")
+    }
+
+    const authorization = getTokenData(token)
+
+    if(!authorization){
+      throw new Error("Token inválido")
+    }
+
+    if(authorization.role !== "ADMIN"){
+      throw new Error("Apenas administradores podem deletar usuários!")
+    }
+
+    const deleteUserBD = deleteUser(id)
+
+    return deleteUserBD
   }
 }
