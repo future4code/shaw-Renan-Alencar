@@ -34,3 +34,10 @@ Authorization: {{token}}
    "date": "10/10/1942",
    "role": "normal"
 }
+
+###
+@token = {{ login.response.body.token }}
+@id = 0bae13e0-1e4e-4dbd-ad59-059985cd038b
+
+GET  http://localhost:3003/post/{{id}}
+Authorization: {{token}}

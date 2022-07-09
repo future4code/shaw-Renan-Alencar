@@ -1,3 +1,4 @@
+import moment from "moment";
 import PostData from "../data/PostData";
 import Post from "../model/Post";
 import { Authenticator } from "../services/Authenticator";
@@ -34,5 +35,28 @@ export default class PostBusiness{
     await this.postData.createPost(post);
 
     return "Post criado com sucesso"
+  }
+
+  public getPostById =async (token: string, id: string) => {
+    const authenticator = Authenticator.getTokenData(token)
+    if(!authenticator){
+      throw new Error("Token inválido")
+    }
+
+    const postData = await this.postData.getPostById(id)
+    if(!postData){
+      throw new Error("Post não localizado");
+    }
+
+    const result = {
+      id: postData.id,
+      photo: postData.photo,
+      description: postData.description,
+      date: moment(postData.created_at).format("DD/MM/YYYY"),
+      author: postData.author_id,
+      type: postData.type
+    }
+
+    return result;
   }
 }

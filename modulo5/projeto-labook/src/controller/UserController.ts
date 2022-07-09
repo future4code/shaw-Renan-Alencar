@@ -25,7 +25,7 @@ export default class UserController {
       if (error instanceof Error) {
         return res.status(400).send(error.message);
       }
-      res.status(500).send("Erro no signup");
+      res.status(500).send("Internal server error");
     }
   };
 
@@ -44,7 +44,7 @@ export default class UserController {
       if (error instanceof Error) {
         return res.status(400).send(error.message);
       }
-      res.status(500).send("Erro no signup");
+      res.status(500).send("Internal server error");
     }
   }
 }

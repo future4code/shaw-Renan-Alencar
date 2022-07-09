@@ -17,4 +17,21 @@ export default class PostData extends BaseDataBase {
       }
     }
   };
+
+  public getPostById =async (id:string) => {
+    try {
+      const result = await BaseDataBase.connection(this.TABLE_NAME)
+      .select()
+      .where({id})
+
+      return result[0]
+
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("Erro do banco !");
+      }
+    }
+  }
 }

@@ -7,9 +7,7 @@ import PostData from "./data/PostData";
 import UserData from "./data/UserData";
 
 const userBusiness = new UserBusiness(new UserData());
-
 const userController = new UserController(userBusiness)
-
 
 const postBusiness = new PostBusiness(new PostData)
 const postController = new PostController(postBusiness)
@@ -17,4 +15,6 @@ const postController = new PostController(postBusiness)
 app.post("/signup", userController.singUp )
 app.post("/login", userController.login )
 app.post("/post", postController.createPost)
+
+app.get("/post/:id", postController.getPostById)
 
