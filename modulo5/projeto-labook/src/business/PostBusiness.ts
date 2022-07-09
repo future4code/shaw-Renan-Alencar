@@ -16,6 +16,10 @@ export default class PostBusiness{
       throw new Error("Campos inválidos");
     }
 
+    if(!token){
+      throw new Error("Para acessar essa funcionalidoda é necessario estar logado")
+    }
+
     const authenticator = Authenticator.getTokenData(token)
     if(!authenticator){
       throw new Error("Token inválido")
@@ -38,6 +42,10 @@ export default class PostBusiness{
   }
 
   public getPostById =async (token: string, id: string) => {
+    if(!token){
+      throw new Error("Para acessar essa funcionalidoda é necessario estar logado")
+    }
+
     const authenticator = Authenticator.getTokenData(token)
     if(!authenticator){
       throw new Error("Token inválido")

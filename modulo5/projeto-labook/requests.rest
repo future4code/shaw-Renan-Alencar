@@ -37,7 +37,22 @@ Authorization: {{token}}
 
 ###
 @token = {{ login.response.body.token }}
-@id = 0bae13e0-1e4e-4dbd-ad59-059985cd038b
 
+@id = 0bae13e0-1e4e-4dbd-ad59-059985cd038b
+# Pegar Post por ID 
 GET  http://localhost:3003/post/{{id}}
 Authorization: {{token}}
+
+
+###
+@token = {{ login.response.body.token }}
+
+# Seguir usuário 
+PUT  http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "id": "aae0a86d-3391-4219-8bdd-14f0f238c742"
+}
+
