@@ -9,7 +9,7 @@ import { SignupInputDTO } from "../types/singupInputDTO";
 export default class UserBusiness {
   constructor(private userData: UserData) {}
 
-  signUp = async (newUser: SignupInputDTO) => {
+  public signUp = async (newUser: SignupInputDTO) => {
     const { name, email, password } = newUser;
     if (!email || !name || !password) {
       throw new Error("Campos inválidos");
@@ -33,7 +33,7 @@ export default class UserBusiness {
     return token;
   };
 
-  login = async (user: LoginInputDTO) => {
+  public login = async (user: LoginInputDTO) => {
     const { email, password } = user;
     if (!email || !password) {
       throw new Error("Campos inválidos");
