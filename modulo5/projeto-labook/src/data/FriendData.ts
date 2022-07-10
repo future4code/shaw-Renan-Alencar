@@ -5,11 +5,29 @@ export default class FriendData extends BaseDataBase {
 
   public followFriend = async (id_follow: string, id_followed: string) => {
     try {
-      await BaseDataBase.connection(this.TABLE_NAME).insert({
-        id_follow: id_followed,
-        id_followed: id_follow,
+      await BaseDataBase.connection(this.TABLE_NAME)
+      .insert({
+        id_follow,
+        id_followed,
       });
 
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("Erro do banco !");
+      }
+    }
+  };
+
+  public unfollowFriend = async (id_follow: string, id_followed: string) => {
+    try {
+      const result = await BaseDataBase.connection(this.TABLE_NAME)
+      .del()
+      .where({id_followed})
+      .andWhere({id_follow})
+
+      return result
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);

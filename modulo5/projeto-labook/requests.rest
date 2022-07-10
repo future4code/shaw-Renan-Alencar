@@ -17,7 +17,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-   "email": "renan@gmail.com" ,
+   "email": "joao@gmail.com" ,
    "password": "123456"
 }
 
@@ -53,6 +53,19 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-   "id": "aae0a86d-3391-4219-8bdd-14f0f238c742"
+   "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
 }
+
+###
+@token = {{ login.response.body.token }}
+
+# Parar de seguir usuário 
+DELETE  http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
+}
+
 

@@ -22,4 +22,25 @@ constructor(
 
     return "Você começou a seguir esse usuário!"
   };
+
+  public deleteFallow =async (token: string, unfollowId: FriendInputDTO) => {
+    const {id} = unfollowId;
+    
+    if (!id) {
+      throw new Error("Favor informar ID do usuário");
+    }
+
+    const authenticator = Authenticator.getTokenData(token);
+    if (!authenticator) {
+      throw new Error("Token inválido");
+    }
+   
+    const result = await this.friendData.unfollowFriend(authenticator.id, id)
+
+    if (!result) {
+      throw new Error("Você não segue esse usuário");
+    }
+
+    return "Você deixou de seguir esse usuário!"
+  }
 }

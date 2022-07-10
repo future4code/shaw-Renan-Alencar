@@ -27,4 +27,7 @@ app.get("/post/:id", postController.getPostById)
 
 app.put("/user/follow", friendController.followFriend)
 
+app.delete("/user/unfollow", friendController.unfollowFriend)
+
+
 
