@@ -67,4 +67,30 @@ export default class PostBusiness{
 
     return result;
   }
+
+  public getPostByType =async (token:string, type:string) => {
+    if (!token) {
+      throw new Error(
+        "Para acessar essa funcionalidoda é necessario estar logado"
+      );
+    }
+    const authenticator = Authenticator.getTokenData(token);
+    if (!authenticator) {
+      throw new Error("Token inválido");
+    }
+
+    const typeData = await this.postData.postType(type);
+
+    const result = typeData.map((data) => {
+      return {
+        photo: data.photo,
+        description: data.description,
+        date: moment(data.created_at, "YYYY-MM-DD").format("DD/MM/YYYY"),
+        author: data.author_id,
+        type: data.type,
+      };
+    });
+    
+    return result
+  }
 }

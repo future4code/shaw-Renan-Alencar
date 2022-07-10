@@ -23,5 +23,4 @@ export default class FeedData extends BaseDataBase {
   };
 }
 
-// .select("labook_users.name", "labook_users.email", "labook_posts.photo", "labook_posts.description", "labook_posts.type", "labook_posts.created_at",  "labook_posts.author_id")
             

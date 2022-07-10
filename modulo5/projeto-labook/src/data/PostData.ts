@@ -34,4 +34,22 @@ export default class PostData extends BaseDataBase {
       }
     }
   }
+
+  public postType =async (type:string) => {
+    try {
+      const result = await BaseDataBase.connection(this.TABLE_NAME)
+      .select()
+      .where({type})
+      .orderBy('created_at', 'desc')
+
+      return result
+
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("Erro do banco !");
+      }
+    }
+  }
 }

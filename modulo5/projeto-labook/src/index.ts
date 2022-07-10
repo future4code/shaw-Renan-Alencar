@@ -31,6 +31,7 @@ app.post("/login", userController.login )
 app.post("/post", postController.createPost)
 
 app.get("/post/:id", postController.getPostById)
+app.get("/user/:type", postController.getPosByType)
 app.get("/user/posts", feedController.postUserFollow)
 
 

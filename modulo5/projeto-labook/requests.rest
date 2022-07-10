@@ -74,6 +74,11 @@ Authorization: {{token}}
 GET  http://localhost:3003/user/posts
 Authorization: {{token}}
 
+###
+@token = {{ login.response.body.token }}
 
+# Pegar Post por Type
+GET  http://localhost:3003/user/normal
+Authorization: {{token}}
 
 

@@ -33,7 +33,7 @@ export default class UserController {
     try {
       const { email, password} = req.body;
 
-      const user: LoginInputDTO ={
+      const user: LoginInputDTO = {
         email, password
       };
 

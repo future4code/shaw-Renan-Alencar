@@ -44,4 +44,20 @@ export default class PostController {
       res.status(500).send("Internal server error");
     }
   };
+
+  getPosByType =async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization!;
+
+      const type = req.params.type;
+
+      const result = await this.postBusiness.getPostByType(token, type)
+      res.status(201).send(result);
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).send(error.message);
+      }
+      res.status(500).send("Internal server error");
+    }
+  }
 }
