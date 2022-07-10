@@ -60,7 +60,7 @@ export default class PostBusiness{
       id: postData.id,
       photo: postData.photo,
       description: postData.description,
-      date: moment(postData.created_at).format("DD/MM/YYYY"),
+      date: moment(postData.created_at, "YYYY-MM-DD").format("DD/MM/YYYY"),
       author: postData.author_id,
       type: postData.type
     }

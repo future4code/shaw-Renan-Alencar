@@ -14,7 +14,7 @@ export default class PostController {
       const newPost: CreatePostInputDTO = {
         photo,
         description,
-        created_at: moment(date).format("YYYY-MM-DD"),
+        created_at: moment(date, "DD/MM/YYYY").format("YYYY-MM-DD"),
         type: role,
       };
 

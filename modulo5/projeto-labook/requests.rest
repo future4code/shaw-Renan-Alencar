@@ -5,8 +5,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-   "name": "renan" ,
-   "email": "renan@gmail.com" ,
+   "name": "matheus" ,
+   "email": "matheus@gmail.com" ,
    "password": "123456"
 }
 
@@ -17,7 +17,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-   "email": "joao@gmail.com" ,
+   "email": "matheus@gmail.com" ,
    "password": "123456"
 }
 
@@ -30,9 +30,9 @@ Authorization: {{token}}
 
 {
    "photo": "link da foto" ,
-   "description": "Antiga foto de SP",
-   "date": "10/10/1942",
-   "role": "normal"
+   "description": "Carnaval no Rio",
+   "date": "20/03/1999",
+   "role": "evento"
 }
 
 ###
@@ -53,7 +53,7 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-   "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
+   "id": "ef2efe9a-860e-46e8-8fbb-2f89b2cf0201"
 }
 
 ###
@@ -67,5 +67,13 @@ Authorization: {{token}}
 {
    "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
 }
+###
+@token = {{ login.response.body.token }}
+
+# Pegar post que usuário segue
+GET  http://localhost:3003/user/posts
+Authorization: {{token}}
+
+
 
 
