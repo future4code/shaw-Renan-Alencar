@@ -19,6 +19,8 @@ constructor(
     }
    
     await this.friendData.followFriend(authenticator.id, followId.id)
+    await this.friendData.followFriend(followId.id, authenticator.id)
+
 
     return "Você começou a seguir esse usuário!"
   };
@@ -36,6 +38,8 @@ constructor(
     }
    
     const result = await this.friendData.unfollowFriend(authenticator.id, id)
+    await this.friendData.unfollowFriend(id, authenticator.id)
+
 
     if (!result) {
       throw new Error("Você não segue esse usuário");
