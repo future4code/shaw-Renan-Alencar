@@ -45,7 +45,21 @@ export default class PostController {
     }
   };
 
-  getPosByType =async (req: Request, res: Response) => {
+  postUserFollow = async (req: Request, res: Response) => {
+    try {
+      const token = req.headers.authorization!;
+      
+      const result = await this.postBusiness.allPostFollow(token)
+      res.status(201).send(result);
+    } catch (error) {
+      if (error instanceof Error) {
+        return res.status(400).send(error.message);
+      }
+      res.status(500).send("Internal server error");
+    }
+  }
+
+  getPostByType = async (req: Request, res: Response) => {
     try {
       const token = req.headers.authorization!;
 

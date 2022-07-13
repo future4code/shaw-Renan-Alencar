@@ -3,6 +3,7 @@ import User from "../model/User";
 import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
+import { FriendInputDTO } from "../types/friendInputDTO";
 import { LoginInputDTO } from "../types/loginInputDTO";
 import { SignupInputDTO } from "../types/singupInputDTO";
 
@@ -53,4 +54,45 @@ export default class UserBusiness {
 
     return token;
   };
+
+  public follow = async (token: string, followId: FriendInputDTO) => {
+
+    if (!followId) {
+      throw new Error("Favor informar ID do usuário");
+    }
+
+    const authenticator = Authenticator.getTokenData(token);
+    if (!authenticator) {
+      throw new Error("Token inválido");
+    }
+   
+    await this.userData.followFriend(authenticator.id, followId.id)
+    await this.userData.followFriend(followId.id, authenticator.id)
+
+
+    return "Você começou a seguir esse usuário!"
+  };
+
+  public deleteFallow =async (token: string, unfollowId: FriendInputDTO) => {
+    const {id} = unfollowId;
+    
+    if (!id) {
+      throw new Error("Favor informar ID do usuário");
+    }
+
+    const authenticator = Authenticator.getTokenData(token);
+    if (!authenticator) {
+      throw new Error("Token inválido");
+    }
+   
+    const result = await this.userData.unfollowFriend(authenticator.id, id)
+    await this.userData.unfollowFriend(id, authenticator.id)
+
+
+    if (!result) {
+      throw new Error("Você não segue esse usuário");
+    }
+
+    return "Você deixou de seguir esse usuário!"
+  }
 }

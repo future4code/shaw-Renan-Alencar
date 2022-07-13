@@ -68,7 +68,25 @@ export default class PostBusiness{
     return result;
   }
 
-  public getPostByType =async (token:string, type:string) => {
+  public allPostFollow = async (token: string) => {
+    if (!token) {
+      throw new Error(
+        "Para acessar essa funcionalidoda é necessario estar logado"
+      );
+    }
+
+    const authenticator = Authenticator.getTokenData(token);
+    if (!authenticator) {
+      throw new Error("Token inválido");
+    }
+    const result = await this.postData.postFollow(authenticator.id);
+    if (result.length === 0) {
+      throw new Error("Você ainda não tem amigos, comece uma amizade para ver os posts");
+    }
+    return result;
+  };
+
+  public getPostByType = async (token:string, type:string) => {
     if (!token) {
       throw new Error(
         "Para acessar essa funcionalidoda é necessario estar logado"
