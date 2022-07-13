@@ -32,6 +32,10 @@ O LaBook será uma rede social com o objetivo de promover a conexão e interaç�
 - jsonwebtoken
 - moment
 
+[Link API](https://labook-renan.herokuapp.com/)
+
+[Documentação API](https://documenter.getpostman.com/view/20354712/UzQoTo8T)
+
 ## 👨‍💻 Desenvolvedor:
 
 | [Renan Martinez](https://github.com/Renan-Ma)
