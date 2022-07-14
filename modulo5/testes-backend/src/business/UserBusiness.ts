@@ -13,14 +13,14 @@ export class UserBusiness {
 
     const userData = await this.userData.getUserById(id)
     if(!userData){
-      throw new CustomError(422, "Post não localizado");
+      throw new CustomError(404, "Usuário não localizado");
     }
 
     const result = {
-      id: userData.id,
-      name: userData.name,
-      email: userData.email,
-      role: userData.role
+      id: userData.getId(),
+      name: userData.getName(),
+      email: userData.getEmail(),
+      role: userData.getRole()
     }
 
     return result
