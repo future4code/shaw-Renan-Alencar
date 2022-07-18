@@ -16,6 +16,5 @@ Consiste em uma rede social, na qual os usuários podem dividir informações re
 - Pegar receita: O usuário consegue acessar as informações de uma receita específica.
 
 
-### Link API
-https://cookenu-renan.herokuapp.com/
+### [Link API](https://cookenu-renan.herokuapp.com/)
 
