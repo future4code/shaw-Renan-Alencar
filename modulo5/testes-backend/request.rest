@@ -1,0 +1,8 @@
+###
+# Pegar usuário pelo id
+@id = 1b52fbec-fdc6-4733-997a-eda6b9548700
+
+GET http://localhost:3003/users/profile/{{id}}
+
+###
+
