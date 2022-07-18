@@ -1,0 +1,84 @@
+###
+# @name signup
+# Create User
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+   "name": "jose" ,
+   "email": "jose@gmail.com" ,
+   "password": "123456"
+}
+
+###
+# @name login
+# Login 
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+   "email": "jose@gmail.com" ,
+   "password": "123456"
+}
+
+###
+@token = {{ login.response.body.token }}
+# Post 
+POST http://localhost:3003/post
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "photo": "link da foto" ,
+   "description": "Carnaval em SP",
+   "date": "20/03/2019",
+   "role": "evento"
+}
+
+###
+@token = {{ login.response.body.token }}
+
+@id = 03ecb6d4-2c4e-49c8-9acd-d6b0cb0bc896
+# Pegar Post por ID 
+GET  http://localhost:3003/post/{{id}}
+Authorization: {{token}}
+
+
+###
+@token = {{ login.response.body.token }}
+
+# Seguir usuário 
+PUT  http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
+}
+
+###
+@token = {{ login.response.body.token }}
+
+# Parar de seguir usuário 
+DELETE  http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+   "id": "1dbdce1b-44ea-49db-aeb5-c233e90816e9"
+}
+###
+@token = {{ login.response.body.token }}
+
+# Pegar post que usuário segue
+GET  http://localhost:3003/posts
+Authorization: {{token}}
+
+###
+@token = {{ login.response.body.token }}
+
+# Pegar Post por Type
+GET  http://localhost:3003/user/evento
+Authorization: {{token}}
+
+
