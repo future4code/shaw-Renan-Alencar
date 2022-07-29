@@ -12,7 +12,8 @@ const SelectContest = ({ gameName, setGameName, lottery}) => {
   });
 
   const handleModification = (event) => {
-    setGameName(event.target.value);
+    const Up = event.target.value.toUpperCase()
+    setGameName(Up);
   };
 
   return (

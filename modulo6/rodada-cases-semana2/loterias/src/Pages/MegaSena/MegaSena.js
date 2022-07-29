@@ -64,10 +64,12 @@ const MegaSena = () => {
       return c.loteriaId == filterLotteryId;
     });
 
+
   return (
-    <MainContainer>
-      <LeftSide>
-        <LeftContent>
+    
+    <MainContainer >
+      <LeftSide color={gameName} >
+        <LeftContent >
           <DivSelect>
           <SelectContest
             gameName={gameName}
