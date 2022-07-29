@@ -2,17 +2,17 @@ import styled from 'styled-components'
 
 export const colorType = color => {
     switch (color) {
-      case "MEGA-SENA":
+      case "mega-sena":
         return "#6BEFA3";
-      case "QUINA":
+      case "quina":
         return "#8666EF";
-      case "LOTOFÁCIL":
+      case "lotofácil":
         return "#DD7AC6";
-      case "LOTOMANIA":
+      case "lotomania":
         return "#FFAB64";
-      case "TIMEMANIA":
+      case "timemania":
         return "#5AAD7D";
-      case "DIA DE SORTE":
+      case "dia de sorte":
         return "#BFAF83";
       default:
         return "#6BEFA3";
