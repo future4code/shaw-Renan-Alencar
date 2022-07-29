@@ -1,12 +1,10 @@
 import React from "react";
-import Router from "./Routes/coordinator";
-
-
+import MegaSena from "./Pages/MegaSena/MegaSena";
 
 function App() {
   return (
     <div >
-     <Router />
+     <MegaSena />
     </div>
   );
 }

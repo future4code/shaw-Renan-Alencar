@@ -1,70 +1,60 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 💻Projeto Loterias
 
-## Available Scripts
+### :dart: Objetivo do projeto
+Esse é um case frontend proposto pela Brainn na qual objetivo é construir uma aplicação web front-end que mostre os Resultados das Loterias.
 
-In the project directory, you can run:
+O projeto foi desenvolvido com base no [layout](https://www.figma.com/file/H2qrYBCFMf4didYmxRwTxP/Brainn-Frontend-Challenge) e na [api](https://brainn-api-loterias.herokuapp.com) fornecidos pela Brainn.
 
-### `npm start`
+### :small_blue_diamond: Os requisitos do projeto são:
+- A aplicação terá que suportar 6 sorteios: Mega-sena, Quina, Lotofácil, Lotomania, Timemania e Dia de sorte
+- Todos esses sorteios estarão em um combo-box/select
+- Ao mudar esse combo-box, terá que mudar o tema do sorteio, número do sorteio, data do sorteio e números sorteados
+- A aplicação terá que ser responsiva, pelo menos para celulares, conforme layout
+- O consumo da API pode ser feito via REST ou GraphQL
+ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ⚙️ Funcionalidades
+- Acessar os concursos de todas as loterias exigidas
+- O tema da página muda de acordo com o sorteio selecionado
+- Responsividade
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## :books: Bibliotecas utilizadas
+- styled-components
+- axios
+- moment
 
-### `npm test`
+## 🔗 Link Projeto
+Acesse a página  [clicando aqui](http://loterias-renan.surge.sh/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Desktop
+![image](https://user-images.githubusercontent.com/69327864/181665827-6552c38f-3a0e-4152-9cb7-d82edaf2ca3d.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Mobile
+![image](https://user-images.githubusercontent.com/69327864/181665973-85a7c2c6-878d-4bec-8270-4254f913d657.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :file_folder: Caso queira executar a aplicação localmente
 
-### `npm run eject`
+#### Clone do repositório
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```shell
+$ git clone Link Repositório
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Instale as dependêmcias
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```shell
+$ npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Execute a aplicação 
 
-## Learn More
+```shell
+$ npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##  :man_technologist: Desenvolvedor
+| [<img src="https://avatars.githubusercontent.com/u/69327864?s=96&v=4" width=115><br><sub>Renan Alencar</sub>](https://github.com/Renan-Ma)
+| :---: | 
