@@ -4,24 +4,32 @@ import { IdGenerator } from "../services/IdGenerator";
 import { CreatePostInputDTO } from "../types/createPostInputDTO";
 
 export class UserBusiness {
-
-  constructor (
+  constructor(
     private idGenerator: IdGenerator,
-    private userData: UserDatabase,
-
+    private userData: UserDatabase
   ) {}
   createUser = async (input: CreatePostInputDTO) => {
-    const { first_name, last_name, participation} = input
+    const { first_name, last_name, participation } = input;
 
-    if(!first_name || !last_name || !participation) {
-      throw new BaseError(422, "Invalid fields")
+    if (!first_name || !last_name || !participation) {
+      throw new BaseError(422, "Invalid fields");
     }
 
-    const id = this.idGenerator.generate()
+    const id = this.idGenerator.generate();
 
-    const result = await this.userData.createUser(id, first_name, last_name, participation)
+    const result = await this.userData.createUser(
+      id,
+      first_name,
+      last_name,
+      participation
+    );
 
-    return(result)
+    return result;
+  };
 
-  }
+  getusers = async () => {
+    const result = await this.userData.allUsers();
+
+    return result;
+  };
 }

@@ -3,9 +3,11 @@ POST http://localhost:3003/user/create
 Content-Type: application/json
 
 {
-    "first_name": "João",
+    "first_name": "Jorge",
     "last_name": "Santos",
-    "participation": 5
+    "participation": 10
 }
 
 ###
+
+GET http://localhost:3003/user
