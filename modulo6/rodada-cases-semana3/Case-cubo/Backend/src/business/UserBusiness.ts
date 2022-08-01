@@ -1,5 +1,8 @@
+import { CreatePostInputDTO } from "../types/createPostInputDTO";
+
 export class UserBusiness {
-  createUser =async () => {
-    
+  createUser = async (input: CreatePostInputDTO) => {
+   
+
   }
 }

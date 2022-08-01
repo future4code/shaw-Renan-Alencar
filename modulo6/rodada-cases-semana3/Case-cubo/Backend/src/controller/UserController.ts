@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
-import { User } from "../model/User";
 import { CreatePostInputDTO } from "../types/createPostInputDTO";
 
 export class UserController {
