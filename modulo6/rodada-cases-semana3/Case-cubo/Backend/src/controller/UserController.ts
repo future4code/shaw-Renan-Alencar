@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { UserBusiness } from "../business/UserBusiness";
-import { BaseDatabase } from "../data/BaseDatabase";
 import { CreatePostInputDTO } from "../types/createPostInputDTO";
 
 export class UserController {
@@ -28,8 +27,6 @@ export class UserController {
         return res.status(400).send(error.message)
     }
     res.status(500).send("Erro no signup")
-    } finally{
-      BaseDatabase.destroyConnection()
-    }
+    } 
   }
 }

@@ -1,0 +1,11 @@
+# Criar usuário 
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "first_name": "João",
+    "last_name": "Santos",
+    "participation": 5
+}
+
+###

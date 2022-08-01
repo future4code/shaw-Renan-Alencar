@@ -1,4 +1,5 @@
-import { BaseError } from "../error/BaeError";
+import { UserDatabase } from "../data/UserDatabase";
+import { BaseError } from "../error/BaseError";
 import { IdGenerator } from "../services/IdGenerator";
 import { CreatePostInputDTO } from "../types/createPostInputDTO";
 
@@ -18,9 +19,9 @@ export class UserBusiness {
 
     const id = this.idGenerator.generate()
 
-    await this.userData.createUser(id, first_name, last_name, participation)
+    const result = await this.userData.createUser(id, first_name, last_name, participation)
 
-    return("Usuário criado")
+    return(result)
 
   }
 }
