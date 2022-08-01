@@ -5,7 +5,8 @@
     "scripts": {
         "start": "tsc && node --inspect ./build/index.js",
         "dev": "clear && ts-node-dev --transpile-only --ignore-watch node_modules ./src/index.ts",
-        "test": "ts-node-dev ./src/services/authenticator.ts"
+        "test": "ts-node-dev ./src/services/authenticator.ts",
+        "migrations" : "tsc && node ./build/data/Migrations.js"
     },
     "author": "Renan",
     "license": "ISC",
