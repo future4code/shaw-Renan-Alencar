@@ -9,8 +9,14 @@ import {
   Participation,
   Table,
   Title,
-  TR,
 } from "./styled";
+import { Chart } from "react-google-charts";
+
+const options = {
+  pieHole: 0.3,
+  is3D: false,
+};
+
 
 const Body = () => {
   const [informations, setInformations] = useState([]);
@@ -19,9 +25,12 @@ const Body = () => {
     getData({
         url: `${BASE_URL}/user`,
         setData: setInformations,
-      },[]);
-  });
+      });
+  },[]);
 
+  const database = informations && informations.map((user) => {
+    return [`${user.first_name} ${user.last_name}`, user.participation]
+})
 
   return (
     <Main>
@@ -52,7 +61,15 @@ const Body = () => {
               );
             })}
         </Table>
-        <div>grafico de pizza</div>
+        <div>
+          <Chart
+            chartType="PieChart"
+            width="450px"
+            height="300px"
+            data={[["first_name", "participation"], ...database]}
+            options={options}
+          />
+        </div>
       </Container>
     </Main>
   );

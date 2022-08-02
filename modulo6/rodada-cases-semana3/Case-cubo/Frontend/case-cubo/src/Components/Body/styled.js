@@ -1,5 +1,8 @@
 import styled from "styled-components";
+import { Chart } from "react-google-charts";
 
+
+// Table 
 export const Main = styled.div`
   width: 100%;
 `
@@ -35,3 +38,7 @@ export const Participation = styled.th`
   padding: 0.8rem 0.7rem;
   text-align: center;
 `;
+
+
+// Grafico 
+
