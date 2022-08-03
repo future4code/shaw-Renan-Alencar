@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../../Constants/Url";
 import { getData } from "../../Hooks/useRequestData";
 import {
+  ButtonDelete,
   Container,
   H1,
   Main,
@@ -12,6 +13,7 @@ import {
   Title,
 } from "./styled";
 import { Chart } from "react-google-charts";
+import axios from "axios";
 
 const options = {
   pieHole: 0.3,
@@ -19,7 +21,7 @@ const options = {
 };
 
 
-const Body = ({update}) => {
+const Body = ({update, setUpdate}) => {
   const [informations, setInformations] = useState([]);
 
   useEffect(() => {
@@ -32,6 +34,18 @@ const Body = ({update}) => {
   const database = informations && informations.map((user) => {
     return [`${user.first_name} ${user.last_name}`, user.participation]
 })
+
+  const deleteUser = async (event) => {
+    try {
+      await axios
+      .delete(`${BASE_URL}/user/delete/${event}`)
+      .then((res) => {
+        setUpdate(!update)
+      })
+    } catch (err) {
+      alert(err.response)
+    }
+  }
 
   return (
     <Main>
@@ -58,6 +72,7 @@ const Body = ({update}) => {
                   <Name>{inf.first_name}</Name>
                   <Name>{inf.last_name}</Name>
                   <Participation>{inf.participation}%</Participation>
+                  <ButtonDelete onClick={() => deleteUser(inf.id)}>X</ButtonDelete>
                 </tr>
               );
             })}

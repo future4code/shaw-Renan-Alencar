@@ -41,5 +41,14 @@ export const Participation = styled.th`
   text-align: center;
 `;
 
+export const ButtonDelete = styled.th`
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+`
+
 
 

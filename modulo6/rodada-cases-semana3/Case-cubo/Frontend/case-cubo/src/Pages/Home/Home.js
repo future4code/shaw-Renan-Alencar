@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <Header setUpdate={setUpdate} update={update}/>
       <DataContainer>
-        <Body update={update}/>
+        <Body setUpdate={setUpdate} update={update}/>
       </DataContainer>
     </div>
   );
