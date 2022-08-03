@@ -38,4 +38,17 @@ export class UserDatabase extends BaseDatabase {
       throw new BaseError(422, error.sqlMessage || error.message);
     }
   };
+
+  public deleteUser =async (id:string) => {
+    try {
+      const result = await this.getConnection()
+      .delete()
+      .where({id})
+      .from(UserDatabase.TABLE_NAME);
+
+      return result
+    } catch (error: any) {
+      throw new BaseError(422, error.sqlMessage || error.message);
+    }
+  }
 }

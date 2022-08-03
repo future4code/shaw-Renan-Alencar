@@ -16,3 +16,5 @@ const userController = new UserController(userBusiness)
 
 userRouter.get("/", userController.getAllUsers);
 userRouter.post("/create", userController.createUser);
+userRouter.delete("/delete/:id", userController.deleteUser);
+

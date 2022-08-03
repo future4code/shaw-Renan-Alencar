@@ -9,5 +9,11 @@ Content-Type: application/json
 }
 
 ###
-
+# Pegar usuário
 GET http://localhost:3003/user
+
+###
+# Deletar usuário
+
+@id = cd344938-ecbb-4ff4-b34a-0af226d37515
+DELETE http://localhost:3003/user/delete/{{id}}

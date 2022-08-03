@@ -2,6 +2,7 @@ import { UserDatabase } from "../data/UserDatabase";
 import { BaseError } from "../error/BaseError";
 import { IdGenerator } from "../services/IdGenerator";
 import { CreatePostInputDTO } from "../types/createPostInputDTO";
+import { deletePostInputDTO } from "../types/deletePostInputDTO";
 
 export class UserBusiness {
   constructor(
@@ -32,4 +33,16 @@ export class UserBusiness {
 
     return result;
   };
+
+  deleteUser=async (input: deletePostInputDTO) => {
+    const {id} = input;
+
+    if (!id) {
+      throw new BaseError(422, "Invalid field");
+    }
+
+    const result = await this.userData.deleteUser(id)
+
+    return result;
+  }
 }
