@@ -3,7 +3,7 @@ import { BASE_URL } from "../../Constants/Url";
 import { useForm } from "../../Hooks/useForm";
 import { Button, FormContainer, HeaderContainer, Input } from "./styled";
 
-const Header = () => {
+const Header = ({setUpdate, update}) => {
 
   const { form, onChange, clean } = useForm({
     first_name: "",
@@ -21,6 +21,7 @@ const Header = () => {
     .post( `${BASE_URL}/user/create`, form)
     .then((res) => {
       clean()
+      setUpdate(!update)
     })
     .catch((err) => {
       alert(err.response.data.message);

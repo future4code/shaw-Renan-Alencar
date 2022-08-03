@@ -3,6 +3,7 @@ import { BASE_URL } from "../../Constants/Url";
 import { getData } from "../../Hooks/useRequestData";
 import {
   Container,
+  H1,
   Main,
   Name,
   Number,
@@ -18,7 +19,7 @@ const options = {
 };
 
 
-const Body = () => {
+const Body = ({update}) => {
   const [informations, setInformations] = useState([]);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ const Body = () => {
         url: `${BASE_URL}/user`,
         setData: setInformations,
       });
-  },[]);
+  },[update]);
 
   const database = informations && informations.map((user) => {
     return [`${user.first_name} ${user.last_name}`, user.participation]
@@ -35,7 +36,7 @@ const Body = () => {
   return (
     <Main>
       <Title>
-        <h1>Data</h1>
+        <H1>Data</H1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
           praesentium?

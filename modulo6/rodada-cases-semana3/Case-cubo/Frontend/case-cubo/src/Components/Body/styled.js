@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { Chart } from "react-google-charts";
-
 
 // Table 
 export const Main = styled.div`
@@ -11,7 +9,11 @@ export const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 `;
+export const H1 = styled.h1`
+  margin-bottom: 0;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -40,5 +42,4 @@ export const Participation = styled.th`
 `;
 
 
-// Grafico 
 
